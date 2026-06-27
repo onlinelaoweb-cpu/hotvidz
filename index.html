@@ -9,580 +9,426 @@
 <meta name="RATING" content="RTA-5042-1996-1400-1577-RTA">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.hotvidz.com/">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="HotVidz – Free HD Adult Videos">
-<meta property="og:description" content="Watch free HD adult videos updated daily. Top rated, most viewed and latest videos across all categories.">
+<meta property="og:description" content="Watch free HD adult videos updated daily.">
 <meta property="og:url" content="https://www.hotvidz.com/">
-<meta property="og:site_name" content="HotVidz">
 <meta property="og:image" content="https://www.hotvidz.com/og-image.jpg">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HotVidz – Free HD Adult Videos">
-<meta name="twitter:description" content="Watch free HD adult videos updated daily. Top rated, most viewed and latest videos across all categories.">
 <meta name="twitter:image" content="https://www.hotvidz.com/og-image.jpg">
-
-<!-- Favicon (SVG) -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "HotVidz",
-  "url": "https://www.hotvidz.com/",
-  "description": "Free HD adult videos updated daily.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.hotvidz.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"HotVidz","url":"https://www.hotvidz.com/","potentialAction":{"@type":"SearchAction","target":"https://www.hotvidz.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-:root {
-  --bg: #111113;
-  --surface: #1c1c1f;
-  --surface2: #242428;
-  --border: #2e2e34;
-  --accent: #ff3d55;
-  --accent-dim: rgba(255,61,85,0.15);
-  --gold: #f5a623;
-  --text: #ebebed;
-  --muted: #7a7a88;
-  --radius: 6px;
-  --font: 'Barlow', sans-serif;
-  --font-display: 'Barlow Condensed', sans-serif;
+:root{
+  --bg:#0e0e0e;
+  --surface:#181818;
+  --surface2:#222;
+  --border:#2a2a2a;
+  --accent:#ff9000;
+  --accent-dark:#cc7200;
+  --accent-dim:rgba(255,144,0,0.12);
+  --text:#f5f5f5;
+  --muted:#888;
+  --muted2:#555;
+  --green:#3bcc6e;
+  --radius:4px;
+  --font:'Inter',sans-serif;
 }
 
-body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; }
-a { color: inherit; text-decoration: none; }
-img { display: block; width: 100%; }
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+button{cursor:pointer;font-family:var(--font)}
 
 /* ── TOPBAR ── */
-.topbar {
-  background: #0a0a0c;
-  border-bottom: 1px solid var(--border);
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  height: 52px;
-  position: sticky;
-  top: 0;
-  z-index: 200;
+.topbar{
+  background:#000;
+  border-bottom:1px solid #1a1a1a;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  height:56px;
+  position:sticky;
+  top:0;
+  z-index:300;
 }
-.logo {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--accent);
-  white-space: nowrap;
-  flex-shrink: 0;
+.logo{
+  font-size:1.55rem;
+  font-weight:800;
+  letter-spacing:-0.5px;
+  white-space:nowrap;
+  flex-shrink:0;
+  color:var(--text);
 }
-.logo span { color: var(--text); }
+.logo em{
+  font-style:normal;
+  background:var(--accent);
+  color:#000;
+  padding:1px 6px 2px;
+  border-radius:3px;
+  margin-left:1px;
+}
+.search-bar{
+  flex:1;
+  max-width:520px;
+  display:flex;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:3px;
+  overflow:hidden;
+}
+.search-bar input{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--text);
+  font-size:13px;
+  padding:0 14px;
+  height:36px;
+}
+.search-bar input::placeholder{color:var(--muted)}
+.search-bar button{
+  background:var(--accent);
+  border:none;
+  color:#000;
+  font-weight:700;
+  font-size:13px;
+  padding:0 18px;
+  height:36px;
+  letter-spacing:0.03em;
+  transition:background .15s;
+}
+.search-bar button:hover{background:var(--accent-dark)}
+.topbar-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
+.btn-login{
+  color:var(--text);
+  font-size:13px;
+  font-weight:500;
+  padding:7px 16px;
+  border:1px solid var(--border);
+  border-radius:3px;
+  transition:border-color .15s;
+}
+.btn-login:hover{border-color:var(--muted)}
+.btn-signup{
+  background:var(--accent);
+  color:#000;
+  font-size:13px;
+  font-weight:700;
+  padding:7px 18px;
+  border-radius:3px;
+  transition:background .15s;
+}
+.btn-signup:hover{background:var(--accent-dark)}
 
-.search-bar {
-  flex: 1;
-  max-width: 480px;
-  display: flex;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
+/* ── MAIN NAV ── */
+.mainnav{
+  background:#111;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  overflow-x:auto;
+  gap:0;
+  scrollbar-width:none;
 }
-.search-bar input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--text);
-  padding: 0 12px;
-  font-family: var(--font);
-  font-size: 0.88rem;
+.mainnav::-webkit-scrollbar{display:none}
+.mainnav a{
+  display:inline-flex;
+  align-items:center;
+  padding:0 18px;
+  height:42px;
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--muted);
+  white-space:nowrap;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s;
 }
-.search-bar input::placeholder { color: var(--muted); }
-.search-bar button {
-  background: var(--accent);
-  border: none;
-  color: white;
-  padding: 0 14px;
-  cursor: pointer;
-  font-size: 1rem;
-}
+.mainnav a:hover{color:var(--text)}
+.mainnav a.active{color:var(--accent);border-bottom-color:var(--accent)}
 
-.topbar-links {
-  display: flex;
-  gap: 4px;
-  margin-left: auto;
-  flex-shrink: 0;
+/* ── CATEGORY STRIP ── */
+.cat-strip{
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  padding:10px 16px;
+  scrollbar-width:none;
 }
-.topbar-links a {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: var(--radius);
-  transition: color 0.15s, background 0.15s;
-  white-space: nowrap;
+.cat-strip::-webkit-scrollbar{display:none}
+.cat-pill{
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-size:12px;
+  font-weight:600;
+  padding:5px 14px;
+  border-radius:2px;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s;
+  user-select:none;
 }
-.topbar-links a:hover { color: var(--text); background: var(--surface2); }
-.topbar-links .btn-signup {
-  background: var(--accent);
-  color: white;
-  padding: 5px 12px;
-  border-radius: var(--radius);
-}
-.topbar-links .btn-signup:hover { background: #e02e45; }
+.cat-pill:hover{background:var(--surface2);border-color:var(--muted2)}
+.cat-pill.active{background:var(--accent);border-color:var(--accent);color:#000}
 
-/* ── NAV ── */
-.mainnav {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  overflow-x: auto;
-  scrollbar-width: none;
+/* ── PAGE LAYOUT ── */
+.page-wrap{
+  max-width:1340px;
+  margin:0 auto;
+  padding:20px 16px;
 }
-.mainnav::-webkit-scrollbar { display: none; }
-.mainnav a {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 10px 11px;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.mainnav a:hover, .mainnav a.active { color: var(--text); border-bottom-color: var(--accent); }
-
-/* ── CATEGORY PILLS ── */
-.cat-strip {
-  background: var(--bg);
-  padding: 10px 16px;
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  border-bottom: 1px solid var(--border);
-}
-.cat-strip::-webkit-scrollbar { display: none; }
-.cat-pill {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 3px;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.cat-pill:hover, .cat-pill.active { background: var(--accent); border-color: var(--accent); color: white; }
-
-
-/* ── LAYOUT ── */
-.page-wrap {
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: 0;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-.main-col { padding: 16px; border-right: 1px solid var(--border); min-width: 0; }
-.side-col { padding: 14px 12px; }
 
 /* ── SECTION HEADER ── */
-.sec-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+.sec-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
 }
-.sec-head h2 {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.sec-head h2{
+  font-size:16px;
+  font-weight:700;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
-.sec-head h2::before {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 18px;
-  background: var(--accent);
-  border-radius: 2px;
-  flex-shrink: 0;
+.sec-head h2::before{
+  content:'';
+  display:inline-block;
+  width:3px;
+  height:16px;
+  background:var(--accent);
+  border-radius:2px;
 }
-.sec-head a { color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-.sec-head a:hover { text-decoration: underline; }
+.sec-head a{
+  font-size:12px;
+  font-weight:600;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+.sec-head a:hover{color:#fff}
 
 /* ── SORT TABS ── */
-.sort-tabs {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 3px;
-  width: fit-content;
+.sort-tabs{
+  display:flex;
+  gap:0;
+  margin-bottom:16px;
+  border-bottom:1px solid var(--border);
 }
-.sort-tab {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: all 0.15s;
+.sort-tab{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--muted);
+  padding:8px 18px;
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+  transition:color .15s,border-color .15s;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
 }
-.sort-tab.active, .sort-tab:hover { background: var(--accent); color: white; }
+.sort-tab:hover{color:var(--text)}
+.sort-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 
 /* ── VIDEO GRID ── */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
-  margin-bottom: 24px;
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:14px;
+  margin-bottom:28px;
 }
 
 /* ── VIDEO CARD ── */
-.vcard {
-  background: var(--surface);
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.15s;
-  position: relative;
+.vcard{display:block;border-radius:var(--radius);overflow:hidden;transition:transform .18s}
+.vcard:hover{transform:translateY(-3px)}
+.vcard:hover .vcard-overlay{opacity:1}
+.vcard:hover .vcard-title{color:var(--accent)}
+.vcard-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface);border-radius:var(--radius) var(--radius) 0 0}
+.thumb-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
 }
-.vcard:hover { transform: translateY(-2px); }
-.vcard:hover .vcard-overlay { opacity: 1; }
+.t1{background:linear-gradient(135deg,#1a0a00,#3d1c00)}
+.t2{background:linear-gradient(135deg,#0a001a,#1c003d)}
+.t3{background:linear-gradient(135deg,#001a0a,#003d1c)}
+.t4{background:linear-gradient(135deg,#1a000a,#3d001c)}
+.t5{background:linear-gradient(135deg,#001a1a,#003d3d)}
+.t6{background:linear-gradient(135deg,#1a1a00,#3d3d00)}
+.t7{background:linear-gradient(135deg,#180018,#3a003a)}
+.t8{background:linear-gradient(135deg,#001818,#003838)}
 
-.vcard-thumb {
-  position: relative;
-  aspect-ratio: 16/9;
-  background: var(--surface2);
-  overflow: hidden;
+.vcard-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0.45);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .18s;
 }
-.thumb-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
+.play-btn{
+  width:44px;height:44px;
+  background:rgba(255,144,0,0.9);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  color:#000;
+  padding-left:3px;
 }
-.vcard-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.15s;
+.vcard-hd{
+  position:absolute;top:6px;left:6px;
+  background:rgba(0,0,0,0.8);
+  color:var(--accent);
+  font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:2px;
+  letter-spacing:0.04em;
 }
-.play-btn {
-  width: 42px;
-  height: 42px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  padding-left: 3px;
+.vcard-duration{
+  position:absolute;bottom:6px;right:6px;
+  background:rgba(0,0,0,0.8);
+  color:#fff;
+  font-size:11px;font-weight:600;
+  padding:2px 6px;border-radius:2px;
 }
-.vcard-duration {
-  position: absolute;
-  bottom: 5px;
-  right: 6px;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 1px 5px;
-  border-radius: 3px;
+.vcard-new{
+  position:absolute;top:6px;right:6px;
+  background:var(--green);
+  color:#000;
+  font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:2px;
+  letter-spacing:0.04em;
 }
-.vcard-hd {
-  position: absolute;
-  top: 5px;
-  left: 6px;
-  background: var(--accent);
-  color: white;
-  font-size: 0.62rem;
-  font-weight: 800;
-  padding: 1px 5px;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
+.vcard-info{
+  background:var(--surface);
+  padding:9px 10px 10px;
+  border-radius:0 0 var(--radius) var(--radius);
 }
-.vcard-new {
-  position: absolute;
-  top: 5px;
-  right: 6px;
-  background: #2ecc71;
-  color: white;
-  font-size: 0.62rem;
-  font-weight: 800;
-  padding: 1px 5px;
-  border-radius: 2px;
+.vcard-title{
+  font-size:12.5px;font-weight:600;
+  line-height:1.4;
+  margin-bottom:5px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  color:var(--text);
+  transition:color .15s;
 }
-.vcard-info { padding: 7px 8px 9px; }
-.vcard-title {
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1.35;
-  margin-bottom: 5px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.vcard-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:var(--muted);
 }
-.vcard-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.7rem;
-  color: var(--muted);
-}
-.vcard-views { display: flex; align-items: center; gap: 3px; }
-.vcard-rating { display: flex; align-items: center; gap: 3px; color: var(--gold); font-weight: 700; }
-
-/* ── AD CARD ── */
-.ad-card {
-  background: linear-gradient(135deg, #1a0810, #0f1020);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  aspect-ratio: 16/9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 12px;
-  cursor: pointer;
-  transition: border-color 0.15s;
-}
-.ad-card:hover { border-color: var(--gold); }
-.ad-card .ad-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-.ad-card .ad-title { font-size: 0.85rem; font-weight: 700; color: var(--gold); margin-bottom: 6px; line-height: 1.3; }
-.ad-card .ad-cta { font-size: 0.72rem; background: var(--gold); color: #111; padding: 4px 10px; border-radius: 3px; font-weight: 800; }
-
-/* ── SIDEBAR ── */
-.side-widget { margin-bottom: 20px; }
-.side-widget h3 {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--border);
-}
-.side-cats { display: flex; flex-direction: column; gap: 2px; }
-.side-cat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 8px;
-  border-radius: 3px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: background 0.12s;
-}
-.side-cat:hover { background: var(--surface2); color: var(--accent); }
-.side-cat-count { font-size: 0.7rem; color: var(--muted); }
-.tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
-.tag {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.12s;
-}
-.tag:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-.side-aff {
-  background: linear-gradient(135deg, #1a0810, #0a0f1a);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-  text-align: center;
-}
-.side-aff .aff-icon { font-size: 2rem; margin-bottom: 6px; }
-.side-aff h4 { font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; color: var(--gold); }
-.side-aff p { font-size: 0.72rem; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
-.side-aff a {
-  display: block;
-  background: var(--accent);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 7px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.side-aff a:hover { opacity: 0.88; }
-
-/* Thumb color gradients */
-.t1 { background: linear-gradient(135deg, #2d1b2d, #1a0f2e); }
-.t2 { background: linear-gradient(135deg, #1a2a1a, #0f1f2e); }
-.t3 { background: linear-gradient(135deg, #2e1a10, #1a1020); }
-.t4 { background: linear-gradient(135deg, #1a1a2e, #0f2020); }
-.t5 { background: linear-gradient(135deg, #2a1020, #1a0a0a); }
-.t6 { background: linear-gradient(135deg, #0f2a1a, #1a2010); }
+.vcard-rating{color:var(--accent);font-weight:700}
 
 /* ── PAGINATION ── */
-.pagination {
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  padding: 20px 0 8px;
+.pagination{
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  margin-top:28px;padding-top:20px;
+  border-top:1px solid var(--border);
 }
-.page-btn {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.12s;
+.page-btn{
+  min-width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:3px;
+  font-size:12.5px;font-weight:600;
+  color:var(--muted);
+  cursor:pointer;
+  padding:0 8px;
+  transition:background .15s,color .15s,border-color .15s;
 }
-.page-btn:hover, .page-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 32px 16px 20px;
-  margin-top: 24px;
-}
-.footer-inner { max-width: 1280px; margin: 0 auto; }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 28px;
-}
-.footer-brand .logo { font-size: 1.5rem; margin-bottom: 10px; display: inline-block; }
-.footer-brand p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; max-width: 260px; }
-.footer-col h4 {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-.footer-col ul li a { color: var(--muted); font-size: 0.78rem; transition: color 0.12s; }
-.footer-col ul li a:hover { color: var(--accent); }
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-}
-.footer-legal { font-size: 0.72rem; color: #444450; line-height: 1.7; max-width: 720px; }
-.footer-badges { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
-.rta-badge {
-  display: inline-block;
-  opacity: 0.5;
-  font-size: 0.65rem;
-  border: 1px solid #555;
-  padding: 2px 5px;
-  border-radius: 3px;
-  color: #888;
-}
+.page-btn:hover{background:var(--surface2);color:var(--text);border-color:var(--muted2)}
+.page-btn.active{background:var(--accent);border-color:var(--accent);color:#000}
 
 /* ── COOKIE NOTICE ── */
-.cookie-notice {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  z-index: 999;
-  flex-wrap: wrap;
+.cookie-notice{
+  position:fixed;bottom:0;left:0;right:0;
+  background:#111;
+  border-top:1px solid var(--border);
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  z-index:500;flex-wrap:wrap;
 }
-.cookie-notice p { font-size: 0.78rem; color: var(--muted); max-width: 700px; line-height: 1.5; }
-.cookie-notice p a { color: var(--accent); }
-.cookie-notice p a:hover { text-decoration: underline; }
-.cookie-btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  font-family: var(--font);
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 7px 18px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
+.cookie-notice p{font-size:12px;color:var(--muted);flex:1}
+.cookie-notice a{color:var(--accent)}
+.cookie-notice button{
+  background:var(--accent);color:#000;
+  border:none;border-radius:3px;
+  font-size:12px;font-weight:700;
+  padding:7px 18px;flex-shrink:0;
 }
-.cookie-btn:hover { background: #e02e45; }
-.cookie-notice.hidden { display: none; }
+.cookie-notice.hidden{display:none}
+
+/* ── FOOTER ── */
+footer{
+  background:#000;
+  border-top:1px solid #1a1a1a;
+  margin-top:40px;
+}
+.footer-inner{
+  max-width:1340px;
+  margin:0 auto;
+  padding:32px 16px 20px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:28px;
+  padding-bottom:24px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:20px;
+}
+.footer-brand .logo{font-size:1.4rem;margin-bottom:10px;display:inline-block}
+.footer-brand p{font-size:12px;color:var(--muted);line-height:1.7;max-width:320px}
+.footer-col h4{
+  font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col li a{font-size:12.5px;color:var(--muted);transition:color .15s}
+.footer-col li a:hover{color:var(--accent)}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.footer-legal p{font-size:11px;color:var(--muted2);line-height:1.7;max-width:740px}
+.footer-legal a{color:var(--muted2)}
+.footer-legal a:hover{color:var(--muted)}
+.rta-badge{
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--muted);
+  font-size:10px;font-weight:800;
+  padding:4px 10px;border-radius:2px;
+  letter-spacing:0.08em;
+  flex-shrink:0;
+}
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+@media(max-width:768px){
+  .topbar-right .btn-login{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+  .video-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
 }
-@media (max-width: 900px) {
-  .page-wrap { grid-template-columns: 1fr; }
-  .side-col { display: none; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .topbar-links .btn-login { display: none; }
-  .video-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .search-bar { max-width: 200px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+@media(max-width:480px){
+  .topbar{padding:0 12px;gap:10px}
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -590,22 +436,22 @@ footer {
 
 <!-- COOKIE NOTICE -->
 <div class="cookie-notice" id="cookieNotice">
-  <p>We use cookies to improve your experience and serve relevant content. By continuing to use HotVidz, you agree to our <a href="privacy-policy.html">Privacy Policy</a> and <a href="cookies-policy.html">Cookie Policy</a>. This site is intended for adults aged 18+ only.</p>
-  <button class="cookie-btn" onclick="dismissCookie()">Got It</button>
+  <p>We use cookies to improve your experience. By continuing you agree to our <a href="cookies-policy.html">Cookie Policy</a>.</p>
+  <button onclick="dismissCookie()">Got It</button>
 </div>
 
 <!-- TOPBAR -->
-<div class="topbar">
-  <a href="index.html" class="logo">Hot<span>Vidz</span></a>
+<header class="topbar">
+  <a href="index.html" class="logo">Hot<em>Vidz</em></a>
   <div class="search-bar">
     <input type="text" placeholder="Search videos..." aria-label="Search videos">
-    <button aria-label="Search">🔍</button>
+    <button aria-label="Search">SEARCH</button>
   </div>
-  <div class="topbar-links">
+  <div class="topbar-right">
     <a href="#" class="btn-login">Log In</a>
     <a href="#" class="btn-signup">Sign Up</a>
   </div>
-</div>
+</header>
 
 <!-- MAIN NAV -->
 <nav class="mainnav" aria-label="Main navigation">
@@ -642,291 +488,242 @@ footer {
   <div class="cat-pill" tabindex="0">VR</div>
 </div>
 
-
-
 <!-- PAGE BODY -->
 <div class="page-wrap">
 
-  <!-- MAIN COLUMN -->
-  <main class="main-col">
+  <div class="sec-head">
+    <h2>Trending Now</h2>
+    <a href="#">View All →</a>
+  </div>
+  <div class="sort-tabs" role="tablist">
+    <div class="sort-tab active" role="tab">Today</div>
+    <div class="sort-tab" role="tab">This Week</div>
+    <div class="sort-tab" role="tab">All Time</div>
+  </div>
 
-    <div class="sec-head">
-      <h2>Trending Now</h2>
-      <a href="#">View All →</a>
-    </div>
-    <div class="sort-tabs" role="tablist">
-      <div class="sort-tab active" role="tab">Today</div>
-      <div class="sort-tab" role="tab">This Week</div>
-      <div class="sort-tab" role="tab">All Time</div>
-    </div>
+  <div class="video-grid">
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t1">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">24:46</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Hot Amateur Couple Home Video</div>
+        <div class="vcard-meta"><span>2.9K views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t2">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">4K</div>
+        <div class="vcard-duration">45:33</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Naughty MILF Seduces Stud At The Spa</div>
+        <div class="vcard-meta"><span>45K views</span><span class="vcard-rating">★ 85%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t3">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">15:22</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Petite Blonde Babe Gets Drilled Hard</div>
+        <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t4">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">33:36</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Busty Brunette Office Fantasy</div>
+        <div class="vcard-meta"><span>9.6K views</span><span class="vcard-rating">★ 98%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t5">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">Full HD</div>
+        <div class="vcard-duration">49:26</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Hot Asian Babe Gets Surprise Massage</div>
+        <div class="vcard-meta"><span>73K views</span><span class="vcard-rating">★ 90%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t6">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">12:10</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Curvy Latina Shows Off Her Amazing Body</div>
+        <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t7">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">19:27</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Cute Petite Teen Blonde At The Gym</div>
+        <div class="vcard-meta"><span>10K views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t8">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">Full HD</div>
+        <div class="vcard-duration">58:40</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Beautiful Redhead Slow Sensual Session</div>
+        <div class="vcard-meta"><span>12K views</span><span class="vcard-rating">★ 95%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t2">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">4K</div>
+        <div class="vcard-duration">35:50</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Sexy Nurse Fantasy Role Play Scene</div>
+        <div class="vcard-meta"><span>8.2K views</span><span class="vcard-rating">★ 97%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t3">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">18:14</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Passionate Couple Morning Quickie</div>
+        <div class="vcard-meta"><span>3.1K views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t5">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">27:03</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Blonde Stepsister Caught In The Act</div>
+        <div class="vcard-meta"><span>31K views</span><span class="vcard-rating">★ 92%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t1">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">Full HD</div>
+        <div class="vcard-duration">42:18</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">MILF Next Door Seduces Young Neighbor</div>
+        <div class="vcard-meta"><span>19K views</span><span class="vcard-rating">★ 96%</span></div>
+      </div>
+    </a>
+  </div>
 
-    <div class="video-grid">
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t1">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">24:46</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Hot Amateur Couple Home Video</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 2.9K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
+  <!-- LATEST VIDEOS -->
+  <div class="sec-head" style="margin-top:10px">
+    <h2>Latest Videos</h2>
+    <a href="#">View All →</a>
+  </div>
+  <div class="video-grid">
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t4">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">22:11</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Brunette Wife Home Session</div>
+        <div class="vcard-meta"><span>420 views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t6">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">4K</div>
+        <div class="vcard-duration">38:55</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Asian Beauty Bedroom Alone</div>
+        <div class="vcard-meta"><span>1.1K views</span><span class="vcard-rating">★ 99%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t7">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">HD</div>
+        <div class="vcard-duration">14:30</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Latina Teen First Time POV</div>
+        <div class="vcard-meta"><span>780 views</span><span class="vcard-rating">★ 100%</span></div>
+      </div>
+    </a>
+    <a class="vcard" href="video-player.html">
+      <div class="vcard-thumb">
+        <div class="thumb-placeholder t8">🎬</div>
+        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
+        <div class="vcard-hd">Full HD</div>
+        <div class="vcard-duration">51:20</div>
+        <div class="vcard-new">NEW</div>
+      </div>
+      <div class="vcard-info">
+        <div class="vcard-title">Redhead Cam Girl Goes Wild</div>
+        <div class="vcard-meta"><span>2.3K views</span><span class="vcard-rating">★ 98%</span></div>
+      </div>
+    </a>
+  </div>
 
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t2">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">4K</div>
-          <div class="vcard-duration">45:33</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Naughty MILF Seduces Stud At The Spa</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 45K</span>
-            <span class="vcard-rating">★ 85%</span>
-          </div>
-        </div>
-      </a>
+  <!-- PAGINATION -->
+  <div class="pagination" role="navigation" aria-label="Page navigation">
+    <div class="page-btn">‹</div>
+    <div class="page-btn active">1</div>
+    <div class="page-btn">2</div>
+    <div class="page-btn">3</div>
+    <div class="page-btn">4</div>
+    <div class="page-btn">5</div>
+    <div class="page-btn">...</div>
+    <div class="page-btn">48</div>
+    <div class="page-btn">›</div>
+  </div>
 
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t3">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">15:22</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Petite Blonde Babe Gets Drilled Hard</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 5.4K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t4">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">33:36</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Busty Brunette Office Fantasy</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 9.6K</span>
-            <span class="vcard-rating">★ 98%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t5">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">Full HD</div>
-          <div class="vcard-duration">49:26</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Hot Asian Babe Gets Surprise Massage</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 73K</span>
-            <span class="vcard-rating">★ 90%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t6">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">12:10</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Curvy Latina Shows Off Her Amazing Body</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 5.4K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t1">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">19:27</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Cute Petite Teen Blonde At The Gym</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 10K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t3">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">Full HD</div>
-          <div class="vcard-duration">58:40</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Beautiful Redhead Slow Sensual Session</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 12K</span>
-            <span class="vcard-rating">★ 95%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t2">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">4K</div>
-          <div class="vcard-duration">25:59</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Tattooed Babe Solo Performance</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 7.3K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t5">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">10:38</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Passionate Couple Weekend Getaway</div>
-          <div class="vcard-meta">
-            <span class="vcard-views">👁 4.4K</span>
-            <span class="vcard-rating">★ 100%</span>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- LATEST SECTION -->
-    <div class="sec-head" style="margin-top:8px">
-      <h2>Latest Videos</h2>
-      <a href="#">View All →</a>
-    </div>
-
-    <div class="video-grid">
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t6">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">8:00</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Doggy Style Afternoon Delight</div>
-          <div class="vcard-meta"><span class="vcard-views">👁 4.8K</span><span class="vcard-rating">★ 93%</span></div>
-        </div>
-      </a>
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t1">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">Full HD</div>
-          <div class="vcard-duration">54:59</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Passionate Submission Fantasy</div>
-          <div class="vcard-meta"><span class="vcard-views">👁 0</span><span class="vcard-rating">★ —</span></div>
-        </div>
-      </a>
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t2">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">30:00</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Busty Babe Sensual Afternoon</div>
-          <div class="vcard-meta"><span class="vcard-views">👁 1.6K</span><span class="vcard-rating">★ —</span></div>
-        </div>
-      </a>
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t3">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">HD</div>
-          <div class="vcard-duration">16:28</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Solo Session With Toys</div>
-          <div class="vcard-meta"><span class="vcard-views">👁 1.2K</span><span class="vcard-rating">★ —</span></div>
-        </div>
-      </a>
-      <a class="vcard" href="video-player.html">
-        <div class="vcard-thumb">
-          <div class="thumb-placeholder t5">🎬</div>
-          <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-          <div class="vcard-hd">Full HD</div>
-          <div class="vcard-duration">1:00:12</div>
-          <div class="vcard-new">NEW</div>
-        </div>
-        <div class="vcard-info">
-          <div class="vcard-title">Perfect Day With My Girlfriend</div>
-          <div class="vcard-meta"><span class="vcard-views">👁 5.0K</span><span class="vcard-rating">★ —</span></div>
-        </div>
-      </a>
-    </div>
-
-    <!-- PAGINATION -->
-    <div class="pagination" role="navigation" aria-label="Page navigation">
-      <div class="page-btn">‹</div>
-      <div class="page-btn active">1</div>
-      <div class="page-btn">2</div>
-      <div class="page-btn">3</div>
-      <div class="page-btn">4</div>
-      <div class="page-btn">5</div>
-      <div class="page-btn">...</div>
-      <div class="page-btn">48</div>
-      <div class="page-btn">›</div>
-    </div>
-
-  </main>
-
-  <!-- SIDEBAR -->
-  <aside class="side-col">
-    
-
-    
-
-    
-    </div>
-
-    
-
-    
-  </aside>
 </div>
 
 <!-- FOOTER -->
@@ -934,7 +731,7 @@ footer {
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo" style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:#ff3d55;letter-spacing:-0.5px;">Hot<span style="color:#ebebed;">Vidz</span></a>
+        <a href="index.html" class="logo">Hot<em>Vidz</em></a>
         <p>Your #1 source for free HD adult videos. Updated daily with new content across hundreds of categories. 100% free — no signup required.</p>
       </div>
       <div class="footer-col">
@@ -946,15 +743,6 @@ footer {
           <li><a href="#">Most Viewed</a></li>
           <li><a href="#">Categories</a></li>
           <li><a href="#">Pornstars</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Partners</h4>
-        <ul>
-          <li><a href="#" target="_blank" rel="noopener sponsored">Live Cams</a></li>
-          <li><a href="#" target="_blank" rel="noopener sponsored">OnlyFans</a></li>
-          <li><a href="#" target="_blank" rel="noopener sponsored">Adult Dating</a></li>
-          <li><a href="contact.html">Advertise</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -970,53 +758,42 @@ footer {
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="footer-legal">
-        <p>HotVidz is an adult website intended solely for persons aged 18 years or older. All models appearing on this website were 18 years of age or older at the time of filming. This website contains age-restricted material (pornography). By entering this site you affirm that you are at least 18 years old and that it is legal to view adult content in your jurisdiction.</p>
-        <p style="margin-top:6px">© 2026 HotVidz. All rights reserved. <a href="disclaimer.html" style="color:#555">18 U.S.C. 2257 Statement</a></p>
+        <p>HotVidz is an adult website intended solely for persons aged 18 years or older. All models appearing on this website were 18 years of age or older at the time of filming. By entering this site you affirm that you are at least 18 years old and that it is legal to view adult content in your jurisdiction.</p>
+        <p style="margin-top:5px">© 2026 HotVidz. All rights reserved. <a href="disclaimer.html">18 U.S.C. 2257 Statement</a></p>
       </div>
-      <div class="footer-badges">
-        <span class="rta-badge">RTA</span>
-      </div>
+      <span class="rta-badge">RTA</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // Cookie notice
-  function dismissCookie() {
-    document.getElementById('cookieNotice').classList.add('hidden');
-    localStorage.setItem('cookieDismissed', '1');
-  }
-  if (localStorage.getItem('cookieDismissed')) {
-    document.getElementById('cookieNotice').classList.add('hidden');
-  }
-
-  // Sort tabs
-  document.querySelectorAll('.sort-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      tab.closest('.sort-tabs').querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    });
+function dismissCookie(){
+  document.getElementById('cookieNotice').classList.add('hidden');
+  localStorage.setItem('cookieDismissed','1');
+}
+if(localStorage.getItem('cookieDismissed')){
+  document.getElementById('cookieNotice').classList.add('hidden');
+}
+document.querySelectorAll('.sort-tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    t.closest('.sort-tabs').querySelectorAll('.sort-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
   });
-
-  // Category pills
-  document.querySelectorAll('.cat-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-    });
+});
+document.querySelectorAll('.cat-pill').forEach(p=>{
+  p.addEventListener('click',()=>{
+    document.querySelectorAll('.cat-pill').forEach(x=>x.classList.remove('active'));
+    p.classList.add('active');
   });
-
-  // Pagination
-  document.querySelectorAll('.page-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
+});
+document.querySelectorAll('.page-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.page-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
   });
+});
 </script>
-
 </body>
 </html>
