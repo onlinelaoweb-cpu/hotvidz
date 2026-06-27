@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdultReviewHub – Best Adult Sites Reviewed</title>
+<meta name="description" content="Find the best adult sites, cam sites, and subscription platforms. Honest reviews and top picks updated daily.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0f;
+    --surface: #18181c;
+    --surface2: #222228;
+    --accent: #e84060;
+    --accent2: #ff6b35;
+    --text: #f0f0f2;
+    --muted: #888896;
+    --border: #2a2a32;
+    --radius: 10px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0a10 0%, #0d0d0f 60%);
+    padding: 64px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,64,96,0.15);
+    border: 1px solid rgba(232,64,96,0.3);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 32px;
+    font-size: 1.05rem;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* AGE WARNING */
+  .age-banner {
+    background: rgba(232,64,96,0.08);
+    border: 1px solid rgba(232,64,96,0.2);
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .age-banner strong { color: var(--accent); }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section { padding: 48px 0; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .section-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  .section-header .pill {
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* SITE CARDS (affiliate review cards) */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .site-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .site-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .card-header {
+    background: var(--surface2);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .site-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .card-title { font-weight: 700; font-size: 1rem; }
+  .card-tag {
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 3px;
+    display: inline-block;
+  }
+  .card-body { padding: 16px 20px; }
+  .card-body p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .stars { color: #f5c518; font-size: 0.9rem; }
+  .rating-num { font-weight: 700; font-size: 0.9rem; }
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .feature-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+  .visit-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+  .visit-btn:hover { opacity: 0.88; }
+  .commission-badge {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #4caf50;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  /* CATEGORY TABS */
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab.active, .tab:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* TOP PICKS BANNER */
+  .top-pick-banner {
+    background: linear-gradient(90deg, rgba(232,64,96,0.12), rgba(255,107,53,0.08));
+    border: 1px solid rgba(232,64,96,0.25);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .top-pick-banner .info h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .top-pick-banner .info p {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .top-pick-banner a {
+    background: var(--accent);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  /* SEO ARTICLE SECTION */
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .article-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+  .article-card:hover { border-color: var(--accent); }
+  .article-card .cat {
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 8px;
+  }
+  .article-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .article-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .article-card .meta {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    gap: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  footer .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  footer .footer-links a:hover { color: var(--text); }
+  footer p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  footer .disclaimer {
+    font-size: 0.75rem;
+    color: #555560;
+    margin-top: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .hero { padding: 40px 16px; }
+    .hero-stats { gap: 24px; }
+    .top-pick-banner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Age Warning -->
+<div class="age-banner">
+  ⚠️ <strong>Adults Only (18+).</strong> This site contains links to adult content. By continuing you confirm you are 18 or older.
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="logo">AdultReviewHub</a>
+  <ul>
+    <li><a href="#top-sites">Top Sites</a></li>
+    <li><a href="#cam-sites">Cam Sites</a></li>
+    <li><a href="#guides">Guides</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">Updated June 2026</div>
+  <h1>Find the <span>Best Adult Sites</span><br>Reviewed & Ranked</h1>
+  <p>We review, rank, and compare top adult platforms so you know exactly where to go. All links are verified and safe.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Sites Reviewed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Free to Browse</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Daily</div>
+      <div class="stat-label">Updates</div>
+    </div>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Top Pick Banner -->
+  <section id="top-sites">
+    <div class="top-pick-banner">
+      <div class="info">
+        <h3>🏆 Editor's Pick — June 2026</h3>
+        <p>Best overall adult platform this month — top quality, trusted, and free to join.</p>
+      </div>
+      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener">Visit Site →</a>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active">All</div>
+      <div class="tab">Free Tube</div>
+      <div class="tab">Cam Sites</div>
+      <div class="tab">Subscriptions</div>
+      <div class="tab">Premium</div>
+    </div>
+
+    <div class="section-header">
+      <h2>Top Rated Adult Sites</h2>
+      <span class="pill">Hot</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#1a1a2e;color:#e84060;">PH</div>
+          <div>
+            <div class="card-title">Pornhub Premium</div>
+            <span class="card-tag">Free + Premium</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">4.9/5</span>
+          </div>
+          <p>The world's largest adult video site. Millions of free videos, HD quality, and a premium tier with exclusive content and no ads.</p>
+          <div class="features">
+            <span class="feature-tag">HD Videos</span>
+            <span class="feature-tag">Free Access</span>
+            <span class="feature-tag">Mobile App</span>
+            <span class="feature-tag">VR Content</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit Pornhub →</a>
+          <div class="commission-badge">💰 Earn up to 25% commission</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#0f1923;color:#00b4d8;">CB</div>
+          <div>
+            <div class="card-title">Chaturbate</div>
+            <span class="card-tag">Live Cam Site</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">4.8/5</span>
+          </div>
+          <p>The #1 live cam site globally. Thousands of live performers streaming 24/7. Free to watch, tip for private shows.</p>
+          <div class="features">
+            <span class="feature-tag">Live Streams</span>
+            <span class="feature-tag">Free Cams</span>
+            <span class="feature-tag">Private Shows</span>
+            <span class="feature-tag">HD Streams</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit Chaturbate →</a>
+          <div class="commission-badge">💰 20% recurring commission</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#1a0a10;color:#ff6b35;">OF</div>
+          <div>
+            <div class="card-title">OnlyFans</div>
+            <span class="card-tag">Creator Subscriptions</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-num">4.6/5</span>
+          </div>
+          <p>Subscribe directly to your favourite creators. Exclusive content, direct messaging, and custom requests all in one platform.</p>
+          <div class="features">
+            <span class="feature-tag">Subscriptions</span>
+            <span class="feature-tag">DMs</span>
+            <span class="feature-tag">Exclusive Content</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit OnlyFans →</a>
+          <div class="commission-badge">💰 5% of referred earnings</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#0a1628;color:#4fc3f7;">MFC</div>
+          <div>
+            <div class="card-title">MyFreeCams</div>
+            <span class="card-tag">Live Cam Site</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-num">4.5/5</span>
+          </div>
+          <p>One of the oldest and most trusted cam sites. Massive community, free cams, and an easy-to-use interface great for beginners.</p>
+          <div class="features">
+            <span class="feature-tag">Free Cams</span>
+            <span class="feature-tag">Community</span>
+            <span class="feature-tag">Trusted</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit MyFreeCams →</a>
+          <div class="commission-badge">💰 Up to 30% commission</div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#12180a;color:#8bc34a;">AT</div>
+          <div>
+            <div class="card-title">AdultTime</div>
+            <span class="card-tag">Premium Subscription</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">4.7/5</span>
+          </div>
+          <p>Netflix of adult content. 50,000+ videos from 250+ premium studios. One subscription, all content, 4K quality.</p>
+          <div class="features">
+            <span class="feature-tag">4K Quality</span>
+            <span class="feature-tag">250+ Studios</span>
+            <span class="feature-tag">Downloads</span>
+            <span class="feature-tag">No Ads</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit AdultTime →</a>
+          <div class="commission-badge">💰 Up to 40% commission</div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="site-card">
+        <div class="card-header">
+          <div class="site-icon" style="background:#1a1008;color:#ffa726;">FL</div>
+          <div>
+            <div class="card-title">Fansly</div>
+            <span class="card-tag">Creator Platform</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-num">4.4/5</span>
+          </div>
+          <p>A fast-growing OnlyFans alternative with tiered subscriptions, live streams, and a creator-friendly payout system.</p>
+          <div class="features">
+            <span class="feature-tag">Tiered Access</span>
+            <span class="feature-tag">Live Streams</span>
+            <span class="feature-tag">Creator Friendly</span>
+          </div>
+          <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener" class="visit-btn">Visit Fansly →</a>
+          <div class="commission-badge">💰 Revenue share available</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEO Articles Section -->
+  <section id="guides">
+    <div class="section-header">
+      <h2>Guides & Reviews</h2>
+      <span class="pill">SEO</span>
+    </div>
+    <div class="article-grid">
+      <div class="article-card">
+        <div class="cat">Guide</div>
+        <h3>Best Free Adult Sites in 2026 (Ranked)</h3>
+        <p>We tested 30+ free adult sites and ranked them by video quality, variety, and safety. Here are the top picks.</p>
+        <div class="meta"><span>June 2026</span><span>5 min read</span></div>
+      </div>
+      <div class="article-card">
+        <div class="cat">Cam Sites</div>
+        <h3>Chaturbate vs MyFreeCams: Which is Better?</h3>
+        <p>A full comparison of the two biggest cam sites — features, pricing, stream quality, and which one wins overall.</p>
+        <div class="meta"><span>June 2026</span><span>4 min read</span></div>
+      </div>
+      <div class="article-card">
+        <div class="cat">Subscriptions</div>
+        <h3>Is OnlyFans Worth It? Honest 2026 Review</h3>
+        <p>We break down costs, content quality, creator variety, and whether an OnlyFans subscription is actually worth your money.</p>
+        <div class="meta"><span>May 2026</span><span>6 min read</span></div>
+      </div>
+      <div class="article-card">
+        <div class="cat">Premium</div>
+        <h3>AdultTime Review: The Netflix of Adult Content</h3>
+        <p>50,000+ videos from 250 studios for one monthly price. We review whether AdultTime's premium service delivers value.</p>
+        <div class="meta"><span>May 2026</span><span>5 min read</span></div>
+      </div>
+      <div class="article-card">
+        <div class="cat">Safety</div>
+        <h3>How to Browse Adult Sites Safely & Privately</h3>
+        <p>Tips on using VPNs, private browsing, and safe payment methods when signing up for adult platforms.</p>
+        <div class="meta"><span>June 2026</span><span>4 min read</span></div>
+      </div>
+      <div class="article-card">
+        <div class="cat">Beginner</div>
+        <h3>Best Adult Sites for Beginners (Easy to Use)</h3>
+        <p>New to adult platforms? Here are the easiest, most user-friendly sites to start with — all free to try.</p>
+        <div class="meta"><span>June 2026</span><span>3 min read</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Affiliate Disclosure</a>
+    <a href="#">Contact</a>
+    <a href="#">DMCA</a>
+  </div>
+  <p>AdultReviewHub contains affiliate links. When you click and sign up through our links, we may earn a commission at no extra cost to you. We only recommend sites we have reviewed.</p>
+  <p class="disclaimer">This site is intended for adults aged 18 and over. All models on linked sites are 18+. © 2026 AdultReviewHub. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

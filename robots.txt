@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /search?
+Disallow: /admin/
+Disallow: /tmp/
+
+Sitemap: https://www.hotvidz.com/sitemap.xml

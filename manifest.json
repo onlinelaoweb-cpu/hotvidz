@@ -1,0 +1,12 @@
+{
+  "name": "HotVidz",
+  "short_name": "HotVidz",
+  "description": "Free HD adult videos updated daily.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#111113",
+  "theme_color": "#ff3d55",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

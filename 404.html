@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — HotVidz</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111113; --surface: #1c1c1f; --border: #2e2e34;
+      --accent: #ff3d55; --text: #ebebed; --muted: #7a7a88;
+      --font: 'Barlow', sans-serif; --font-display: 'Barlow Condensed', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* NAV */
+    .topbar { background: #0a0a0c; border-bottom: 1px solid var(--border); padding: 0 20px; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+    .logo span { color: var(--text); }
+    .nav-home { background: var(--accent); color: #fff; padding: 7px 18px; border-radius: 4px; font-weight: 700; font-size: 0.85rem; text-decoration: none; }
+
+    /* MAIN */
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+    .error-box { text-align: center; max-width: 520px; }
+    .error-code { font-family: var(--font-display); font-size: 8rem; font-weight: 800; line-height: 1; color: var(--accent); opacity: 0.15; }
+    .error-title { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-top: -20px; margin-bottom: 12px; }
+    .error-desc { color: var(--muted); font-size: 1rem; line-height: 1.6; margin-bottom: 32px; }
+    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 11px 24px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity .2s; }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+
+    /* SUGGESTIONS */
+    .suggestions { margin-top: 48px; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; }
+    .suggestions h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+    .suggestions ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .suggestions li a { color: var(--text); font-weight: 600; font-size: 0.9rem; }
+    .suggestions li a:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 16px 20px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    footer a { color: var(--muted); margin: 0 8px; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="/" class="logo">Hot<span>Vidz</span></a>
+    <a href="/" class="nav-home">Go Home</a>
+  </header>
+
+  <main>
+    <div class="error-box">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">The page you're looking for doesn't exist or may have been moved. Try going back to the homepage or browse our categories.</p>
+      <div class="btn-group">
+        <a href="/" class="btn btn-primary">🏠 Go to Homepage</a>
+        <a href="/" onclick="history.back(); return false;" class="btn btn-outline">← Go Back</a>
+      </div>
+
+      <div class="suggestions">
+        <h3>Popular Pages</h3>
+        <ul>
+          <li><a href="/">🔥 Trending Videos</a></li>
+          <li><a href="/categories.html">📂 Browse All Categories</a></li>
+          <li><a href="/index.html#latest">⭐ Latest Videos</a></li>
+          <li><a href="/contact.html">✉️ Contact Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Use</a>
+    <a href="/dmca.html">DMCA</a>
+    <a href="/contact.html">Contact</a>
+    <br><br>
+    © 2025 HotVidz.com — All rights reserved. | 18+ Only
+  </footer>
+
+</body>
+</html>
