@@ -430,6 +430,44 @@ footer{
   .video-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr}
 }
+
+/* ── CRAKREVENUE BANNER ZONES ── */
+.cr-banner-zone{
+  width:100%;
+  background:var(--surface);
+  border:1px dashed #333;
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
+  color:var(--muted2);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  overflow:hidden;
+  position:relative;
+}
+.cr-banner-zone::before{
+  content:attr(data-label);
+  position:absolute;
+  top:4px;left:6px;
+  font-size:9px;
+  color:#333;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+.cr-leaderboard{height:90px}   /* 728x90 */
+.cr-rectangle{height:250px;max-width:300px;margin:0 auto 20px} /* 300x250 */
+.cr-halfpage{height:600px;max-width:300px;margin:0 auto 20px}  /* 300x600 */
+.cr-inline{height:90px;margin-bottom:16px}  /* inline between rows */
+/* Hide placeholder styling once real banner is pasted in */
+.cr-banner-zone:not(:empty) > .cr-placeholder{display:none}
+.cr-placeholder{text-align:center}
+
 </style>
 </head>
 <body>
@@ -489,6 +527,41 @@ footer{
 </div>
 
 <!-- PAGE BODY -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CRAKREVENUE BANNER #1 — LEADERBOARD (728x90)
+     Placement: Below category strip, above video grid
+     Best for: High-visibility desktop impressions
+     HOW TO USE: Delete the <div class="cr-placeholder">
+     block and paste your CrakRevenue iframe/script here.
+═══════════════════════════════════════════════════════ -->
+<div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · 728×90 Leaderboard">
+  <div class="cr-placeholder">
+    <div>📋 Paste CrakRevenue 728×90 banner code here</div>
+    <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #1 — LEADERBOARD</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW TO ADD REAL VIDEOS — 3 STEPS:
+
+     1. Go to Pornhub.com → find a video you want
+     2. Copy the video ID from the URL:
+        URL example: pornhub.com/view_video.php?viewkey=ph60ea2a8e8e5ae
+        Your ID is:  ph60ea2a8e8e5ae
+
+     3. Find VIDEO_ID_1 (or 2, 3...) in this file and replace it:
+        BEFORE: href="video-player.html?src=VIDEO_ID_1&site=pornhub"
+        AFTER:  href="video-player.html?src=ph60ea2a8e8e5ae&site=pornhub"
+
+     You can also use XVideos or xHamster:
+        XVideos URL: xvideos.com/video12345678/title  → ID: 12345678
+        xHamster URL: xhamster.com/videos/title-9876543 → ID: 9876543
+        Then change &site=pornhub to &site=xvideos or &site=xhamster
+
+     Repeat for VIDEO_ID_1 through VIDEO_ID_16 (16 cards total)
+═══════════════════════════════════════════════════════════════ -->
 <div class="page-wrap">
 
   <div class="sec-head">
@@ -502,7 +575,7 @@ footer{
   </div>
 
   <div class="video-grid">
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_1&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t1">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -514,7 +587,7 @@ footer{
         <div class="vcard-meta"><span>2.9K views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_2&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t2">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -526,7 +599,7 @@ footer{
         <div class="vcard-meta"><span>45K views</span><span class="vcard-rating">★ 85%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_3&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t3">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -539,7 +612,7 @@ footer{
         <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_4&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t4">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -551,7 +624,7 @@ footer{
         <div class="vcard-meta"><span>9.6K views</span><span class="vcard-rating">★ 98%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_5&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t5">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -563,7 +636,7 @@ footer{
         <div class="vcard-meta"><span>73K views</span><span class="vcard-rating">★ 90%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_6&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t6">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -576,7 +649,7 @@ footer{
         <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_7&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t7">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -588,7 +661,7 @@ footer{
         <div class="vcard-meta"><span>10K views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_8&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t8">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -600,7 +673,7 @@ footer{
         <div class="vcard-meta"><span>12K views</span><span class="vcard-rating">★ 95%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_9&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t2">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -612,7 +685,7 @@ footer{
         <div class="vcard-meta"><span>8.2K views</span><span class="vcard-rating">★ 97%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_10&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t3">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -625,7 +698,7 @@ footer{
         <div class="vcard-meta"><span>3.1K views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_11&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t5">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -637,7 +710,7 @@ footer{
         <div class="vcard-meta"><span>31K views</span><span class="vcard-rating">★ 92%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_12&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t1">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -652,12 +725,26 @@ footer{
   </div>
 
   <!-- LATEST VIDEOS -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       CRAKREVENUE BANNER #2 — INLINE STRIP (728x90)
+       Placement: Between Trending Now and Latest Videos rows
+       Best for: Mid-page engagement, high CTR placement
+       HOW TO USE: Delete cr-placeholder, paste banner code.
+  ═══════════════════════════════════════════════════════ -->
+  <div class="cr-banner-zone cr-inline" data-label="CrakRevenue · Mid-Page Strip">
+    <div class="cr-placeholder">
+      <div>📋 Paste CrakRevenue banner code here</div>
+      <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #2 — MID PAGE</div>
+    </div>
+  </div>
+
   <div class="sec-head" style="margin-top:10px">
     <h2>Latest Videos</h2>
     <a href="#">View All →</a>
   </div>
   <div class="video-grid">
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_13&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t4">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -670,7 +757,7 @@ footer{
         <div class="vcard-meta"><span>420 views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_14&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t6">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -683,7 +770,7 @@ footer{
         <div class="vcard-meta"><span>1.1K views</span><span class="vcard-rating">★ 99%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_15&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t7">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -696,7 +783,7 @@ footer{
         <div class="vcard-meta"><span>780 views</span><span class="vcard-rating">★ 100%</span></div>
       </div>
     </a>
-    <a class="vcard" href="video-player.html">
+    <a class="vcard" href="video-player.html?src=VIDEO_ID_16&site=pornhub">
       <div class="vcard-thumb">
         <div class="thumb-placeholder t8">🎬</div>
         <div class="vcard-overlay"><div class="play-btn">▶</div></div>
@@ -709,6 +796,20 @@ footer{
         <div class="vcard-meta"><span>2.3K views</span><span class="vcard-rating">★ 98%</span></div>
       </div>
     </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CRAKREVENUE BANNER #3 — BOTTOM LEADERBOARD (728x90)
+       Placement: Above pagination, end of content
+       Best for: Catching users before they leave
+       HOW TO USE: Delete cr-placeholder, paste banner code.
+  ═══════════════════════════════════════════════════════ -->
+  <div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · Bottom Leaderboard">
+    <div class="cr-placeholder">
+      <div>📋 Paste CrakRevenue banner code here</div>
+      <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #3 — BOTTOM</div>
+    </div>
   </div>
 
   <!-- PAGINATION -->

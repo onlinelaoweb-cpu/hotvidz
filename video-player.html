@@ -52,24 +52,45 @@ button{cursor:pointer;font-family:var(--font)}
 .page-wrap{max-width:1340px;margin:0 auto;padding:0 16px 40px;display:grid;grid-template-columns:1fr 320px;gap:24px}
 
 /* PLAYER */
-.player-wrap{aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
-.player-placeholder{
+/* PLAYER */
+.player-wrap{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 */
+  background:#000;
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:14px;
+}
+.player-wrap iframe{
+  position:absolute;
+  top:0;left:0;
   width:100%;height:100%;
+  border:none;
+}
+/* Shown only when no embed is pasted yet */
+.player-placeholder{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;cursor:pointer;
-  background:radial-gradient(ellipse at center,#1a1a1a 0%,#000 100%);
+  gap:14px;
+  background:radial-gradient(ellipse at center,#1c1c1c 0%,#000 100%);
 }
 .big-play{
   width:72px;height:72px;
-  background:var(--accent);
-  border-radius:50%;
+  background:var(--accent);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:28px;color:#000;padding-left:5px;
   transition:transform .15s,background .15s;
 }
-.player-placeholder:hover .big-play{transform:scale(1.1);background:var(--accent-dark)}
 .player-placeholder p{font-size:13px;color:var(--muted)}
-.embed-hint{font-size:11px;color:var(--muted2);background:var(--surface);padding:5px 14px;border-radius:3px;border:1px solid var(--border)}
+.embed-steps{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px 20px;
+  text-align:left;font-size:12px;color:var(--muted);
+  line-height:2;max-width:380px;
+}
+.embed-steps strong{color:var(--accent)}
 
 /* VIDEO TITLE */
 .video-title{font-size:17px;font-weight:700;line-height:1.35;margin-bottom:12px}
@@ -209,6 +230,22 @@ footer{background:#000;border-top:1px solid #1a1a1a;margin-top:0}
   .action-btn{padding:6px 10px}
   .related-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ── CRAKREVENUE BANNER ZONES ── */
+.cr-banner-zone{
+  width:100%;background:var(--surface);border:1px dashed #333;
+  border-radius:var(--radius);display:flex;align-items:center;
+  justify-content:center;flex-direction:column;gap:4px;
+  color:var(--muted2);font-size:11px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:16px;overflow:hidden;position:relative;
+}
+.cr-banner-zone::before{content:attr(data-label);position:absolute;top:4px;left:6px;font-size:9px;color:#333;font-weight:700;letter-spacing:.06em}
+.cr-leaderboard{height:90px}
+.cr-rectangle{height:250px;max-width:300px}
+.cr-halfpage{height:600px;max-width:300px}
+.cr-placeholder{text-align:center}
+
 </style>
 </head>
 <body>
@@ -247,16 +284,70 @@ footer{background:#000;border-top:1px solid #1a1a1a;margin-top:0}
 <div class="page-wrap">
 
   <main>
+
+<!-- ═══════════════════════════════════════════════════════
+     CRAKREVENUE BANNER #1 — LEADERBOARD (728x90)
+     Placement: Above video player
+     Best for: First thing user sees — very high CTR
+     HOW TO USE: Delete cr-placeholder, paste banner code.
+═══════════════════════════════════════════════════════ -->
+<div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · Above Player 728×90">
+  <div class="cr-placeholder">
+    <div>📋 Paste CrakRevenue 728×90 banner here</div>
+    <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #1 — ABOVE PLAYER</div>
+  </div>
+</div>
+
     <!-- VIDEO PLAYER -->
     <div class="player-wrap">
-      <!--
-        Replace the placeholder below with your real embed iframe, e.g.:
-        <iframe src="https://www.pornhub.com/embed/VIDEOID" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
-      -->
-      <div class="player-placeholder" onclick="this.style.display='none'">
+
+      <!-- ═══════════════════════════════════════════════════
+           HOW TO ADD A REAL VIDEO (Pornhub example):
+           1. Go to any Pornhub video
+           2. Click Share → Embed
+           3. Copy the <iframe ...> code
+           4. DELETE the entire <div class="player-placeholder"> block below
+           5. PASTE your <iframe> code here instead
+
+           Example Pornhub embed:
+           <iframe src="https://www.pornhub.com/embed/ph60xxxxxx"
+             allowfullscreen></iframe>
+
+           Example XVideos embed:
+           <iframe src="https://www.xvideos.com/embedframe/XXXXXX"
+             allowfullscreen></iframe>
+
+           Example xHamster embed:
+           <iframe src="https://xhamster.com/xembed.php?video=XXXXXXX"
+             allowfullscreen></iframe>
+      ═══════════════════════════════════════════════════ -->
+
+      <div class="player-placeholder">
         <div class="big-play">▶</div>
-        <p>Click to Play — Replace with your embed code</p>
-        <div class="embed-hint">📋 Paste your &lt;iframe&gt; embed code here</div>
+        <p>No embed code added yet</p>
+        <div class="embed-steps">
+          <strong>How to add a video:</strong><br>
+          1. Go to Pornhub / XVideos / xHamster<br>
+          2. Find a video → click <strong>Share → Embed</strong><br>
+          3. Copy the <strong>&lt;iframe&gt;</strong> code<br>
+          4. Delete this placeholder block<br>
+          5. Paste your iframe here
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         CRAKREVENUE BANNER #2 — LEADERBOARD (728x90)
+         Placement: Below player, above title
+         Best for: Post-play intent — best converting spot
+         HOW TO USE: Delete cr-placeholder, paste banner code.
+    ═══════════════════════════════════════════════════════ -->
+    <div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · Below Player 728×90">
+      <div class="cr-placeholder">
+        <div>📋 Paste CrakRevenue 728×90 banner here</div>
+        <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #2 — BELOW PLAYER</div>
       </div>
     </div>
 
@@ -346,10 +437,40 @@ footer{background:#000;border-top:1px solid #1a1a1a;margin-top:0}
         <div class="vcard-info"><div class="vcard-title">Latina Beauty Afternoon Fun</div><div class="vcard-meta"><span>8.1K views</span><span class="vcard-rating-s">★ 96%</span></div></div>
       </a>
     </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         CRAKREVENUE BANNER #4 — LEADERBOARD (728x90)
+         Placement: Below related videos
+         Best for: End-of-page exit intent
+         HOW TO USE: Delete cr-placeholder, paste banner code.
+    ═══════════════════════════════════════════════════════ -->
+    <div class="cr-banner-zone cr-leaderboard" style="margin-top:20px" data-label="CrakRevenue · Bottom 728×90">
+      <div class="cr-placeholder">
+        <div>📋 Paste CrakRevenue 728×90 banner here</div>
+        <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #4 — BOTTOM</div>
+      </div>
+    </div>
+
   </main>
 
   <!-- SIDEBAR -->
   <aside class="side-col">
+
+    <div class="side-widget" style="padding:0">
+      <!-- ═══════════════════════════════════════════════════════
+           CRAKREVENUE BANNER #3 — RECTANGLE (300x250)
+           Placement: Top of sidebar
+           Best for: Sticky sidebar visibility throughout watch
+           HOW TO USE: Delete cr-placeholder, paste banner code.
+      ═══════════════════════════════════════════════════════ -->
+      <div class="cr-banner-zone cr-rectangle" style="margin:0;border:none;border-radius:0" data-label="CrakRevenue · Sidebar 300×250">
+        <div class="cr-placeholder">
+          <div>📋 Paste CrakRevenue 300×250 banner here</div>
+          <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #3 — SIDEBAR</div>
+        </div>
+      </div>
+    </div>
+
     <div class="side-widget">
       <div class="side-widget-title">Up Next</div>
       <div class="side-list">
@@ -425,5 +546,43 @@ footer{background:#000;border-top:1px solid #1a1a1a;margin-top:0}
   </div>
 </footer>
 
+<script>
+// ═══════════════════════════════════════════════════════
+// AUTO EMBED LOADER
+// You can link to this page with a video ID in the URL:
+// video-player.html?src=ph60xxxxxx&site=pornhub
+// video-player.html?src=XXXXXX&site=xvideos
+// video-player.html?src=XXXXXXX&site=xhamster
+//
+// This script will auto-load the right embed iframe.
+// ═══════════════════════════════════════════════════════
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const src  = params.get('src');
+  const site = (params.get('site') || '').toLowerCase();
+  if(!src) return;
+
+  const embedURLs = {
+    pornhub:  `https://www.pornhub.com/embed/${src}`,
+    xvideos:  `https://www.xvideos.com/embedframe/${src}`,
+    xhamster: `https://xhamster.com/xembed.php?video=${src}`,
+    xnxx:     `https://www.xnxx.com/embedframe/${src}`,
+  };
+
+  const embedURL = embedURLs[site];
+  if(!embedURL) return;
+
+  const wrap = document.querySelector('.player-wrap');
+  const placeholder = wrap.querySelector('.player-placeholder');
+  if(placeholder) placeholder.remove();
+
+  const iframe = document.createElement('iframe');
+  iframe.src = embedURL;
+  iframe.setAttribute('allowfullscreen','');
+  iframe.setAttribute('scrolling','no');
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none';
+  wrap.appendChild(iframe);
+})();
+</script>
 </body>
 </html>
