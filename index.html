@@ -3,925 +3,778 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HotVidz – Free HD Adult Videos | Watch Online Daily Updates</title>
-<meta name="description" content="HotVidz – Watch free HD adult videos updated daily. Browse thousands of top-rated videos across all categories. 100% free, no registration required.">
-<meta name="keywords" content="free adult videos, HD porn, adult video tube, free sex videos, amateur videos, MILF videos">
+<title>HotVidz – Free HD Adult Videos</title>
+<meta name="description" content="HotVidz – Watch free HD adult videos updated daily. Browse thousands of top-rated videos. 100% free, no registration required.">
 <meta name="RATING" content="RTA-5042-1996-1400-1577-RTA">
-<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.hotvidz.com/">
-<meta property="og:type" content="website">
 <meta property="og:title" content="HotVidz – Free HD Adult Videos">
-<meta property="og:description" content="Watch free HD adult videos updated daily.">
-<meta property="og:url" content="https://www.hotvidz.com/">
 <meta property="og:image" content="https://www.hotvidz.com/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HotVidz – Free HD Adult Videos">
-<meta name="twitter:image" content="https://www.hotvidz.com/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"HotVidz","url":"https://www.hotvidz.com/","potentialAction":{"@type":"SearchAction","target":"https://www.hotvidz.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --bg:#0e0e0e;
-  --surface:#181818;
+  --bg:#0f0f0f;
+  --surface:#1a1a1a;
   --surface2:#222;
   --border:#2a2a2a;
   --accent:#ff9000;
-  --accent-dark:#cc7200;
-  --accent-dim:rgba(255,144,0,0.12);
-  --text:#f5f5f5;
-  --muted:#888;
-  --muted2:#555;
-  --green:#3bcc6e;
-  --radius:4px;
+  --accent2:#e08000;
+  --text:#f0f0f0;
+  --muted:#777;
+  --muted2:#444;
+  --green:#4caf50;
   --font:'Inter',sans-serif;
+  --radius:8px;
 }
-
-body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;line-height:1.5}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;line-height:1.5;min-height:100vh}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%}
 button{cursor:pointer;font-family:var(--font)}
 
+/* ── SIDEBAR ── */
+.sidebar{
+  position:fixed;top:0;left:0;bottom:0;
+  width:56px;
+  background:#111;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 0;
+  gap:6px;
+  z-index:200;
+  transition:width .2s;
+}
+.sidebar:hover{width:180px}
+.sidebar-logo{
+  font-size:1.1rem;font-weight:800;
+  color:var(--text);
+  padding:8px 10px;
+  white-space:nowrap;
+  overflow:hidden;
+  width:100%;
+  text-align:center;
+  margin-bottom:10px;
+}
+.sidebar-logo em{font-style:normal;background:var(--accent);color:#000;padding:1px 5px 2px;border-radius:3px}
+.nav-item{
+  display:flex;align-items:center;gap:12px;
+  width:100%;padding:10px 16px;
+  color:var(--muted);font-size:13px;font-weight:500;
+  border-radius:0;
+  transition:color .15s,background .15s;
+  white-space:nowrap;overflow:hidden;
+  cursor:pointer;
+}
+.nav-item:hover{color:var(--text);background:var(--surface)}
+.nav-item.active{color:var(--accent)}
+.nav-icon{font-size:18px;flex-shrink:0;width:24px;text-align:center}
+.nav-label{opacity:0;transition:opacity .15s;font-size:13px}
+.sidebar:hover .nav-label{opacity:1}
+.sidebar:hover .sidebar-logo{text-align:left;padding-left:14px}
+.nav-divider{width:80%;height:1px;background:var(--border);margin:8px 0;flex-shrink:0}
+
+/* ── MAIN CONTENT ── */
+.main{margin-left:56px;min-height:100vh}
+
 /* ── TOPBAR ── */
 .topbar{
-  background:#000;
-  border-bottom:1px solid #1a1a1a;
+  background:#111;
+  border-bottom:1px solid var(--border);
   padding:0 20px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  height:56px;
-  position:sticky;
-  top:0;
-  z-index:300;
+  height:54px;
+  display:flex;align-items:center;gap:14px;
+  position:sticky;top:0;z-index:100;
 }
-.logo{
-  font-size:1.55rem;
-  font-weight:800;
-  letter-spacing:-0.5px;
-  white-space:nowrap;
-  flex-shrink:0;
-  color:var(--text);
-}
-.logo em{
-  font-style:normal;
-  background:var(--accent);
-  color:#000;
-  padding:1px 6px 2px;
-  border-radius:3px;
-  margin-left:1px;
-}
-.search-bar{
-  flex:1;
-  max-width:520px;
+.search-wrap{
+  flex:1;max-width:480px;
   display:flex;
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:3px;
+  border-radius:20px;
   overflow:hidden;
-}
-.search-bar input{
-  flex:1;
-  background:transparent;
-  border:none;
-  outline:none;
-  color:var(--text);
-  font-size:13px;
-  padding:0 14px;
-  height:36px;
-}
-.search-bar input::placeholder{color:var(--muted)}
-.search-bar button{
-  background:var(--accent);
-  border:none;
-  color:#000;
-  font-weight:700;
-  font-size:13px;
-  padding:0 18px;
-  height:36px;
-  letter-spacing:0.03em;
-  transition:background .15s;
-}
-.search-bar button:hover{background:var(--accent-dark)}
-.topbar-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
-.btn-login{
-  color:var(--text);
-  font-size:13px;
-  font-weight:500;
-  padding:7px 16px;
-  border:1px solid var(--border);
-  border-radius:3px;
   transition:border-color .15s;
+}
+.search-wrap:focus-within{border-color:var(--accent)}
+.search-wrap input{
+  flex:1;background:transparent;border:none;outline:none;
+  color:var(--text);font-size:13px;padding:0 16px;height:36px;
+}
+.search-wrap input::placeholder{color:var(--muted)}
+.search-wrap button{
+  background:transparent;border:none;
+  color:var(--muted);padding:0 14px;font-size:15px;
+  transition:color .15s;
+}
+.search-wrap button:hover{color:var(--accent)}
+.topbar-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.btn-login{
+  color:var(--text);font-size:12.5px;font-weight:500;
+  padding:6px 16px;border:1px solid var(--border);
+  border-radius:20px;transition:border-color .15s;
 }
 .btn-login:hover{border-color:var(--muted)}
 .btn-signup{
-  background:var(--accent);
-  color:#000;
-  font-size:13px;
-  font-weight:700;
-  padding:7px 18px;
-  border-radius:3px;
+  background:var(--accent);color:#000;
+  font-size:12.5px;font-weight:700;
+  padding:6px 18px;border-radius:20px;
   transition:background .15s;
 }
-.btn-signup:hover{background:var(--accent-dark)}
+.btn-signup:hover{background:var(--accent2)}
 
-/* ── MAIN NAV ── */
-.mainnav{
-  background:#111;
+/* ── CATEGORY PILLS ── */
+.cat-bar{
+  display:flex;gap:8px;overflow-x:auto;
+  padding:12px 20px;
   border-bottom:1px solid var(--border);
-  display:flex;
-  overflow-x:auto;
-  gap:0;
-  scrollbar-width:none;
+  scrollbar-width:none;background:#111;
 }
-.mainnav::-webkit-scrollbar{display:none}
-.mainnav a{
-  display:inline-flex;
-  align-items:center;
-  padding:0 18px;
-  height:42px;
-  font-size:12.5px;
-  font-weight:600;
-  color:var(--muted);
-  white-space:nowrap;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  border-bottom:2px solid transparent;
-  transition:color .15s,border-color .15s;
-}
-.mainnav a:hover{color:var(--text)}
-.mainnav a.active{color:var(--accent);border-bottom-color:var(--accent)}
-
-/* ── CATEGORY STRIP ── */
-.cat-strip{
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  display:flex;
-  gap:6px;
-  overflow-x:auto;
-  padding:10px 16px;
-  scrollbar-width:none;
-}
-.cat-strip::-webkit-scrollbar{display:none}
+.cat-bar::-webkit-scrollbar{display:none}
 .cat-pill{
   background:var(--surface);
   border:1px solid var(--border);
-  color:var(--text);
-  font-size:12px;
-  font-weight:600;
-  padding:5px 14px;
-  border-radius:2px;
-  white-space:nowrap;
-  cursor:pointer;
-  transition:background .15s,border-color .15s,color .15s;
-  user-select:none;
+  color:var(--muted);
+  font-size:12px;font-weight:500;
+  padding:5px 14px;border-radius:20px;
+  white-space:nowrap;cursor:pointer;
+  transition:all .15s;flex-shrink:0;
 }
-.cat-pill:hover{background:var(--surface2);border-color:var(--muted2)}
-.cat-pill.active{background:var(--accent);border-color:var(--accent);color:#000}
+.cat-pill:hover{border-color:var(--muted2);color:var(--text)}
+.cat-pill.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
 
-/* ── PAGE LAYOUT ── */
-.page-wrap{
-  max-width:1340px;
-  margin:0 auto;
-  padding:20px 16px;
+/* ── BANNER ZONE ── */
+.banner-zone{
+  background:var(--surface);border:1px dashed var(--border);
+  border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:4px;
+  color:var(--muted2);font-size:11px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+  position:relative;overflow:hidden;
 }
+.banner-zone::before{content:attr(data-label);position:absolute;top:4px;left:8px;font-size:9px;color:var(--muted2);letter-spacing:.06em}
+.bz-leader{height:90px;margin:16px 20px 0}
+.bz-mid{height:90px;margin:0 20px}
+
+/* ── PAGE WRAP ── */
+.page{padding:20px}
 
 /* ── SECTION HEADER ── */
-.sec-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:14px;
-}
-.sec-head h2{
-  font-size:16px;
-  font-weight:700;
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.sec-head h2::before{
-  content:'';
-  display:inline-block;
-  width:3px;
-  height:16px;
-  background:var(--accent);
-  border-radius:2px;
-}
-.sec-head a{
-  font-size:12px;
-  font-weight:600;
-  color:var(--accent);
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-}
-.sec-head a:hover{color:#fff}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sec-title{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sec-title::before{content:'';display:inline-block;width:3px;height:16px;background:var(--accent);border-radius:2px}
+.sec-link{font-size:12px;color:var(--accent);font-weight:600}
 
 /* ── SORT TABS ── */
-.sort-tabs{
-  display:flex;
-  gap:0;
-  margin-bottom:16px;
-  border-bottom:1px solid var(--border);
-}
+.sort-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:16px}
 .sort-tab{
-  font-size:12.5px;
-  font-weight:600;
-  color:var(--muted);
-  padding:8px 18px;
-  cursor:pointer;
-  border-bottom:2px solid transparent;
-  margin-bottom:-1px;
+  font-size:12px;font-weight:600;color:var(--muted);
+  padding:8px 16px;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  text-transform:uppercase;letter-spacing:.04em;
   transition:color .15s,border-color .15s;
-  text-transform:uppercase;
-  letter-spacing:0.04em;
 }
 .sort-tab:hover{color:var(--text)}
 .sort-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 
+/* ── VIDEO GRID ── */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:16px;
+  margin-bottom:24px;
+}
 
+/* ── VIDEO CARD (Beeg style) ── */
+.vcard{display:block;border-radius:var(--radius);overflow:hidden;transition:transform .2s}
+.vcard:hover{transform:translateY(-4px)}
+.vcard:hover .vcard-title{color:var(--accent)}
+.vcard:hover .play-icon{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+.vcard-thumb{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--surface);
+  border-radius:var(--radius);
+}
 .vcard-thumb img{
-  position:absolute;
-  top:0;left:0;
+  position:absolute;top:0;left:0;
   width:100%;height:100%;
   object-fit:cover;
   transition:transform .3s;
 }
 .vcard:hover .vcard-thumb img{transform:scale(1.05)}
-.vcard-thumb{position:relative}
-
-/* ── VIDEO GRID ── */
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-  gap:14px;
-  margin-bottom:28px;
-}
-
-/* ── VIDEO CARD ── */
-.vcard{display:block;border-radius:var(--radius);overflow:hidden;transition:transform .18s}
-.vcard:hover{transform:translateY(-3px)}
-.vcard:hover .vcard-overlay{opacity:1}
-.vcard:hover .vcard-title{color:var(--accent)}
-.vcard-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface);border-radius:var(--radius) var(--radius) 0 0}
-.thumb-placeholder{
-  width:100%;height:100%;
+.thumb-bg{
+  position:absolute;top:0;left:0;width:100%;height:100%;
   display:flex;align-items:center;justify-content:center;
-  font-size:2rem;
+  font-size:2.5rem;
 }
-.t1{background:linear-gradient(135deg,#1a0a00,#3d1c00)}
-.t2{background:linear-gradient(135deg,#0a001a,#1c003d)}
-.t3{background:linear-gradient(135deg,#001a0a,#003d1c)}
-.t4{background:linear-gradient(135deg,#1a000a,#3d001c)}
-.t5{background:linear-gradient(135deg,#001a1a,#003d3d)}
-.t6{background:linear-gradient(135deg,#1a1a00,#3d3d00)}
-.t7{background:linear-gradient(135deg,#180018,#3a003a)}
-.t8{background:linear-gradient(135deg,#001818,#003838)}
+.t1{background:linear-gradient(135deg,#1c0a00,#3d1c00)}
+.t2{background:linear-gradient(135deg,#0a001c,#1c003d)}
+.t3{background:linear-gradient(135deg,#001c0a,#003d1c)}
+.t4{background:linear-gradient(135deg,#1c000a,#3d001c)}
+.t5{background:linear-gradient(135deg,#001c1c,#003d3d)}
+.t6{background:linear-gradient(135deg,#1c1c00,#3d3d00)}
+.t7{background:linear-gradient(135deg,#1a001a,#3a003a)}
+.t8{background:linear-gradient(135deg,#001818,#003535)}
 
-.vcard-overlay{
-  position:absolute;inset:0;
-  background:rgba(0,0,0,0.45);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .18s;
-}
-.play-btn{
-  width:44px;height:44px;
-  background:rgba(255,144,0,0.9);
+.play-icon{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  width:48px;height:48px;
+  background:rgba(255,144,0,0.92);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-size:16px;
-  color:#000;
-  padding-left:3px;
-}
-.vcard-hd{
-  position:absolute;top:6px;left:6px;
-  background:rgba(0,0,0,0.8);
-  color:var(--accent);
-  font-size:10px;font-weight:700;
-  padding:2px 6px;border-radius:2px;
-  letter-spacing:0.04em;
+  font-size:18px;color:#000;padding-left:4px;
+  opacity:0;transition:opacity .2s,transform .2s;
 }
 .vcard-duration{
-  position:absolute;bottom:6px;right:6px;
-  background:rgba(0,0,0,0.8);
-  color:#fff;
+  position:absolute;bottom:7px;right:7px;
+  background:rgba(0,0,0,.85);color:#fff;
   font-size:11px;font-weight:600;
-  padding:2px 6px;border-radius:2px;
+  padding:2px 6px;border-radius:4px;
+}
+.vcard-hd{
+  position:absolute;top:7px;left:7px;
+  background:rgba(0,0,0,.75);color:var(--accent);
+  font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:4px;
+  letter-spacing:.03em;
 }
 .vcard-new{
-  position:absolute;top:6px;right:6px;
-  background:var(--green);
-  color:#000;
+  position:absolute;top:7px;right:7px;
+  background:var(--green);color:#fff;
   font-size:10px;font-weight:700;
-  padding:2px 6px;border-radius:2px;
-  letter-spacing:0.04em;
+  padding:2px 6px;border-radius:4px;
 }
-.vcard-info{
-  background:var(--surface);
-  padding:9px 10px 10px;
-  border-radius:0 0 var(--radius) var(--radius);
-}
-.vcard-title{
-  font-size:12.5px;font-weight:600;
-  line-height:1.4;
-  margin-bottom:5px;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  color:var(--text);
-  transition:color .15s;
-}
-.vcard-meta{
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:11px;color:var(--muted);
-}
-.vcard-rating{color:var(--accent);font-weight:700}
 
-/* ── PAGINATION ── */
-.pagination{
-  display:flex;align-items:center;justify-content:center;gap:4px;
-  margin-top:28px;padding-top:20px;
-  border-top:1px solid var(--border);
+/* Pornstar avatar strip (Beeg feature) */
+.vcard-author{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 0 4px;
 }
-.page-btn{
-  min-width:34px;height:34px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:3px;
-  font-size:12.5px;font-weight:600;
-  color:var(--muted);
-  cursor:pointer;
-  padding:0 8px;
-  transition:background .15s,color .15s,border-color .15s;
-}
-.page-btn:hover{background:var(--surface2);color:var(--text);border-color:var(--muted2)}
-.page-btn.active{background:var(--accent);border-color:var(--accent);color:#000}
-
-/* ── COOKIE NOTICE ── */
-.cookie-notice{
-  position:fixed;bottom:0;left:0;right:0;
-  background:#111;
-  border-top:1px solid var(--border);
-  padding:12px 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  z-index:500;flex-wrap:wrap;
-}
-.cookie-notice p{font-size:12px;color:var(--muted);flex:1}
-.cookie-notice a{color:var(--accent)}
-.cookie-notice button{
+.author-avatar{
+  width:28px;height:28px;border-radius:50%;
   background:var(--accent);color:#000;
-  border:none;border-radius:3px;
-  font-size:12px;font-weight:700;
-  padding:7px 18px;flex-shrink:0;
-}
-.cookie-notice.hidden{display:none}
-
-/* ── FOOTER ── */
-footer{
-  background:#000;
-  border-top:1px solid #1a1a1a;
-  margin-top:40px;
-}
-.footer-inner{
-  max-width:1340px;
-  margin:0 auto;
-  padding:32px 16px 20px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:28px;
-  padding-bottom:24px;
-  border-bottom:1px solid var(--border);
-  margin-bottom:20px;
-}
-.footer-brand .logo{font-size:1.4rem;margin-bottom:10px;display:inline-block}
-.footer-brand p{font-size:12px;color:var(--muted);line-height:1.7;max-width:320px}
-.footer-col h4{
   font-size:11px;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.08em;
-  color:var(--muted);
-  margin-bottom:12px;
-}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-col li a{font-size:12.5px;color:var(--muted);transition:color .15s}
-.footer-col li a:hover{color:var(--accent)}
-.footer-bottom{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-}
-.footer-legal p{font-size:11px;color:var(--muted2);line-height:1.7;max-width:740px}
-.footer-legal a{color:var(--muted2)}
-.footer-legal a:hover{color:var(--muted)}
-.rta-badge{
-  background:var(--surface);
-  border:1px solid var(--border);
-  color:var(--muted);
-  font-size:10px;font-weight:800;
-  padding:4px 10px;border-radius:2px;
-  letter-spacing:0.08em;
+  display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
 }
+.author-name{font-size:11.5px;color:var(--muted);font-weight:500}
+
+.vcard-title{
+  font-size:13px;font-weight:600;line-height:1.4;
+  margin-bottom:4px;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+  color:var(--text);transition:color .15s;
+}
+.vcard-meta{
+  display:flex;justify-content:space-between;
+  font-size:11.5px;color:var(--muted);
+}
+.vcard-likes{color:var(--accent);font-weight:600}
+
+/* ── PORNSTAR ROW (Beeg-style top row) ── */
+.star-row{
+  display:flex;gap:12px;overflow-x:auto;
+  padding-bottom:16px;margin-bottom:4px;
+  scrollbar-width:none;
+}
+.star-row::-webkit-scrollbar{display:none}
+.star-card{
+  display:flex;flex-direction:column;align-items:center;
+  gap:6px;flex-shrink:0;cursor:pointer;
+  transition:transform .15s;
+}
+.star-card:hover{transform:translateY(-2px)}
+.star-avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--surface);
+  border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;overflow:hidden;
+  transition:border-color .15s;
+}
+.star-card:hover .star-avatar{border-color:var(--accent)}
+.star-name{font-size:11px;color:var(--muted);text-align:center;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ── CHANNEL PILLS ── */
+.channel-row{
+  display:flex;gap:8px;overflow-x:auto;
+  padding-bottom:16px;scrollbar-width:none;
+}
+.channel-row::-webkit-scrollbar{display:none}
+.channel-pill{
+  display:flex;align-items:center;gap:7px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:5px 14px 5px 8px;
+  flex-shrink:0;cursor:pointer;
+  transition:border-color .15s;
+}
+.channel-pill:hover{border-color:var(--accent)}
+.channel-dot{width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#fff}
+.channel-pill span{font-size:12px;font-weight:600;color:var(--text)}
+
+/* ── PAGINATION ── */
+.pagination{display:flex;gap:4px;justify-content:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.pg-btn{
+  min-width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);font-size:12.5px;font-weight:600;
+  color:var(--muted);cursor:pointer;padding:0 8px;
+  transition:all .15s;
+}
+.pg-btn:hover{background:var(--surface2);color:var(--text);border-color:var(--muted2)}
+.pg-btn.active{background:var(--accent);border-color:var(--accent);color:#000}
+
+/* ── COOKIE BANNER ── */
+.cookie{
+  position:fixed;bottom:0;left:56px;right:0;
+  background:#111;border-top:1px solid var(--border);
+  padding:12px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;z-index:500;flex-wrap:wrap;
+}
+.cookie p{font-size:12px;color:var(--muted);flex:1}
+.cookie a{color:var(--accent)}
+.cookie button{background:var(--accent);color:#000;border:none;border-radius:20px;font-size:12px;font-weight:700;padding:7px 20px}
+.cookie.hidden{display:none}
+
+/* ── FOOTER ── */
+footer{background:#000;border-top:1px solid #1a1a1a;margin-top:20px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:24px 20px 16px}
+.footer-links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px}
+.footer-links a{font-size:12px;color:var(--muted);transition:color .15s}
+.footer-links a:hover{color:var(--accent)}
+.footer-legal{font-size:11px;color:var(--muted2);line-height:1.8}
+.footer-legal a{color:var(--muted2)}
+.rta{display:inline-block;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:10px;font-weight:800;padding:3px 8px;border-radius:3px;margin-left:8px;letter-spacing:.06em;vertical-align:middle}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  .topbar-right .btn-login{display:none}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .footer-brand{grid-column:1/-1}
-  .video-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .sidebar{width:0;border:none}
+  .main{margin-left:0}
+  .cookie{left:0}
+  .video-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .star-row{display:none}
 }
-@media(max-width:480px){
-  .topbar{padding:0 12px;gap:10px}
-  .video-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr}
-}
-
-/* ── CRAKREVENUE BANNER ZONES ── */
-.cr-banner-zone{
-  width:100%;
-  background:var(--surface);
-  border:1px dashed #333;
-  border-radius:var(--radius);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:4px;
-  color:var(--muted2);
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  margin-bottom:20px;
-  overflow:hidden;
-  position:relative;
-}
-.cr-banner-zone::before{
-  content:attr(data-label);
-  position:absolute;
-  top:4px;left:6px;
-  font-size:9px;
-  color:#333;
-  font-weight:700;
-  letter-spacing:.06em;
-}
-.cr-leaderboard{height:90px}   /* 728x90 */
-.cr-rectangle{height:250px;max-width:300px;margin:0 auto 20px} /* 300x250 */
-.cr-halfpage{height:600px;max-width:300px;margin:0 auto 20px}  /* 300x600 */
-.cr-inline{height:90px;margin-bottom:16px}  /* inline between rows */
-/* Hide placeholder styling once real banner is pasted in */
-.cr-banner-zone:not(:empty) > .cr-placeholder{display:none}
-.cr-placeholder{text-align:center}
-
 </style>
 </head>
 <body>
 
-<!-- COOKIE NOTICE -->
-<div class="cookie-notice" id="cookieNotice">
-  <p>We use cookies to improve your experience. By continuing you agree to our <a href="cookies-policy.html">Cookie Policy</a>.</p>
-  <button onclick="dismissCookie()">Got It</button>
+<!-- COOKIE -->
+<div class="cookie" id="cookieBanner">
+  <p>We use cookies to improve your experience. <a href="cookies-policy.html">Learn more</a></p>
+  <button onclick="document.getElementById('cookieBanner').classList.add('hidden');localStorage.setItem('ck','1')">Got It</button>
 </div>
 
-<!-- TOPBAR -->
-<header class="topbar">
-  <a href="index.html" class="logo">Hot<em>Vidz</em></a>
-  <div class="search-bar">
-    <input type="text" placeholder="Search videos..." aria-label="Search videos">
-    <button aria-label="Search">SEARCH</button>
-  </div>
-  <div class="topbar-right">
-    <a href="#" class="btn-login">Log In</a>
-    <a href="#" class="btn-signup">Sign Up</a>
-  </div>
-</header>
-
-<!-- MAIN NAV -->
-<nav class="mainnav" aria-label="Main navigation">
-  <a href="index.html" class="active">Home</a>
-  <a href="#">Latest</a>
-  <a href="#">Top Rated</a>
-  <a href="#">Most Viewed</a>
-  <a href="#">Longest</a>
-  <a href="#">Categories</a>
-  <a href="#">Pornstars</a>
-  <a href="#">Channels</a>
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">Hot<em>Vidz</em></div>
+  <a href="index.html" class="nav-item active">
+    <span class="nav-icon">🏠</span><span class="nav-label">Home</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">🔥</span><span class="nav-label">Trending</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">⭐</span><span class="nav-label">Top Rated</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">🕐</span><span class="nav-label">Latest</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">👁</span><span class="nav-label">Most Viewed</span>
+  </a>
+  <div class="nav-divider"></div>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">📂</span><span class="nav-label">Categories</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">⭐</span><span class="nav-label">Pornstars</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">📺</span><span class="nav-label">Channels</span>
+  </a>
+  <div class="nav-divider"></div>
+  <a href="about.html" class="nav-item">
+    <span class="nav-icon">ℹ️</span><span class="nav-label">About</span>
+  </a>
+  <a href="contact.html" class="nav-item">
+    <span class="nav-icon">✉️</span><span class="nav-label">Contact</span>
+  </a>
 </nav>
 
-<!-- CATEGORY STRIP -->
-<div class="cat-strip" role="navigation" aria-label="Categories">
-  <div class="cat-pill active" tabindex="0">All</div>
-  <div class="cat-pill" tabindex="0">Amateur</div>
-  <div class="cat-pill" tabindex="0">MILF</div>
-  <div class="cat-pill" tabindex="0">Teen (18+)</div>
-  <div class="cat-pill" tabindex="0">Anal</div>
-  <div class="cat-pill" tabindex="0">Blowjob</div>
-  <div class="cat-pill" tabindex="0">Lesbian</div>
-  <div class="cat-pill" tabindex="0">Asian</div>
-  <div class="cat-pill" tabindex="0">Latina</div>
-  <div class="cat-pill" tabindex="0">Blonde</div>
-  <div class="cat-pill" tabindex="0">Brunette</div>
-  <div class="cat-pill" tabindex="0">Big Tits</div>
-  <div class="cat-pill" tabindex="0">BBC</div>
-  <div class="cat-pill" tabindex="0">POV</div>
-  <div class="cat-pill" tabindex="0">Threesome</div>
-  <div class="cat-pill" tabindex="0">Creampie</div>
-  <div class="cat-pill" tabindex="0">Cam</div>
-  <div class="cat-pill" tabindex="0">4K</div>
-  <div class="cat-pill" tabindex="0">VR</div>
-</div>
+<!-- MAIN -->
+<div class="main">
 
-<!-- PAGE BODY -->
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="search-wrap">
+      <input type="text" placeholder="Search videos, pornstars..." aria-label="Search">
+      <button>🔍</button>
+    </div>
+    <div class="topbar-right">
+      <a href="#" class="btn-login">Log In</a>
+      <a href="#" class="btn-signup">Sign Up</a>
+    </div>
+  </header>
 
-<!-- ═══════════════════════════════════════════════════════
-     CRAKREVENUE BANNER #1 — LEADERBOARD (728x90)
-     Placement: Below category strip, above video grid
-     Best for: High-visibility desktop impressions
-     HOW TO USE: Delete the <div class="cr-placeholder">
-     block and paste your CrakRevenue iframe/script here.
-═══════════════════════════════════════════════════════ -->
-<div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · 728×90 Leaderboard">
-  <div class="cr-placeholder">
-    <div>📋 Paste CrakRevenue 728×90 banner code here</div>
-    <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #1 — LEADERBOARD</div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     HOW TO ADD REAL VIDEOS — 3 STEPS:
-
-     1. Go to Pornhub.com → find a video you want
-     2. Copy the video ID from the URL:
-        URL example: pornhub.com/view_video.php?viewkey=ph6394f4ec30f64
-        Your ID is:  ph6394f4ec30f64
-
-     3. Find ph6a200a05cf88a (or 2, 3...) in this file and replace it:
-        BEFORE: href="video-player.html?src=ph6394f4ec30f64&site=pornhub"
-        AFTER:  href="video-player.html?src=ph5fce4d881f61d&site=pornhub"
-
-     You can also use XVideos or xHamster:
-        XVideos URL: xvideos.com/video12345678/title  → ID: 12345678
-        xHamster URL: xhamster.com/videos/title-9876543 → ID: 9876543
-        Then change &site=pornhub to &site=xvideos or &site=xhamster
-
-     Repeat for ph6a200a05cf88a through ph6a200a05cf88a (16 cards total)
-═══════════════════════════════════════════════════════════════ -->
-<div class="page-wrap">
-
-  <div class="sec-head">
-    <h2>Trending Now</h2>
-    <a href="#">View All →</a>
-  </div>
-  <div class="sort-tabs" role="tablist">
-    <div class="sort-tab active" role="tab">Today</div>
-    <div class="sort-tab" role="tab">This Week</div>
-    <div class="sort-tab" role="tab">All Time</div>
+  <!-- CATEGORY PILLS -->
+  <div class="cat-bar">
+    <div class="cat-pill active">All</div>
+    <div class="cat-pill">Amateur</div>
+    <div class="cat-pill">MILF</div>
+    <div class="cat-pill">Teen (18+)</div>
+    <div class="cat-pill">Anal</div>
+    <div class="cat-pill">Blowjob</div>
+    <div class="cat-pill">Lesbian</div>
+    <div class="cat-pill">Asian</div>
+    <div class="cat-pill">Latina</div>
+    <div class="cat-pill">Blonde</div>
+    <div class="cat-pill">Brunette</div>
+    <div class="cat-pill">Big Tits</div>
+    <div class="cat-pill">BBC</div>
+    <div class="cat-pill">POV</div>
+    <div class="cat-pill">Threesome</div>
+    <div class="cat-pill">Creampie</div>
+    <div class="cat-pill">4K</div>
+    <div class="cat-pill">VR</div>
   </div>
 
-  <div class="video-grid">
-    <a class="vcard" href="video-player.html?src=ph62ec1bf49a237&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/6394f4ec30f64/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">24:46</div>
-      </div>
-      <div class="vcard-info">
+  <!-- CRAKREVENUE BANNER #1 -->
+  <div class="banner-zone bz-leader" data-label="CrakRevenue · 728×90 Leaderboard">
+    <!-- Paste CrakRevenue 728×90 banner code here -->
+    <div style="font-size:11px;color:#333">📋 BANNER ZONE #1 — LEADERBOARD 728×90</div>
+  </div>
+
+  <div class="page">
+
+    <!-- PORNSTAR ROW -->
+    <div class="sec-head" style="margin-bottom:10px">
+      <div class="sec-title">Popular Pornstars</div>
+      <a href="#" class="sec-link">See All →</a>
+    </div>
+    <div class="star-row">
+      <div class="star-card"><div class="star-avatar">👩</div><div class="star-name">Riley Reid</div></div>
+      <div class="star-card"><div class="star-avatar">👱</div><div class="star-name">Mia Malkova</div></div>
+      <div class="star-card"><div class="star-avatar">🌸</div><div class="star-name">Lana Rhodes</div></div>
+      <div class="star-card"><div class="star-avatar">💋</div><div class="star-name">Abella Danger</div></div>
+      <div class="star-card"><div class="star-avatar">🔥</div><div class="star-name">Eva Elfie</div></div>
+      <div class="star-card"><div class="star-avatar">⭐</div><div class="star-name">Anny Walker</div></div>
+      <div class="star-card"><div class="star-avatar">🌺</div><div class="star-name">Angel Youngs</div></div>
+      <div class="star-card"><div class="star-avatar">💎</div><div class="star-name">Sybil A</div></div>
+      <div class="star-card"><div class="star-avatar">🎀</div><div class="star-name">Jenny Kitty</div></div>
+      <div class="star-card"><div class="star-avatar">✨</div><div class="star-name">Diana Rider</div></div>
+      <div class="star-card"><div class="star-avatar">🌙</div><div class="star-name">Sweetie Fox</div></div>
+      <div class="star-card"><div class="star-avatar">🍀</div><div class="star-name">Candy Love</div></div>
+    </div>
+
+    <!-- CHANNEL ROW -->
+    <div class="channel-row" style="margin-bottom:20px">
+      <div class="channel-pill"><div class="channel-dot" style="background:#e91e63">B</div><span>Bratty Sis</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#9c27b0">N</div><span>Nubiles</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#2196f3">A</div><span>Adult Time</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#000">B</div><span>Blacked</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#f44336">F</div><span>Family XXX</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#4caf50">L</div><span>LetsDoElt!</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#ff5722">W</div><span>Wow Girls</span></div>
+      <div class="channel-pill"><div class="channel-dot" style="background:#607d8b">U</div><span>Ultra Films</span></div>
+    </div>
+
+    <!-- TRENDING NOW -->
+    <div class="sec-head">
+      <div class="sec-title">Trending Now</div>
+      <a href="#" class="sec-link">View All →</a>
+    </div>
+    <div class="sort-tabs">
+      <div class="sort-tab active">Today</div>
+      <div class="sort-tab">This Week</div>
+      <div class="sort-tab">All Time</div>
+    </div>
+
+    <div class="video-grid">
+
+      <a class="vcard" href="video-player.html?src=ph6394f4ec30f64&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/6394f4ec30f64/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t1">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-duration">24:46</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">A</div><div class="author-name">AmateurReal</div></div>
         <div class="vcard-title">Hot Amateur Couple Home Video</div>
-        <div class="vcard-meta"><span>2.9K views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph6394ed3c77d4f&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/5fce4d881f61d/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">4K</div>
-        <div class="vcard-duration">45:33</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>2.9K views · Today</span><span class="vcard-likes">♥ 511</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph5fce4d881f61d&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/5fce4d881f61d/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t2">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">4K</div>
+          <div class="vcard-duration">45:33</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">N</div><div class="author-name">NubilesPorn</div></div>
         <div class="vcard-title">Naughty MILF Seduces Stud At The Spa</div>
-        <div class="vcard-meta"><span>45K views</span><span class="vcard-rating">★ 85%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph60d5dd2cc20a7&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/62ec1bf49a237/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">15:22</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>45K views · Today</span><span class="vcard-likes">♥ 186</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph62ec1bf49a237&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/62ec1bf49a237/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t3">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">15:22</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">E</div><div class="author-name">Eva Elfie</div></div>
         <div class="vcard-title">Petite Blonde Babe Gets Drilled Hard</div>
-        <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph624ee9fddef91&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/6394ed3c77d4f/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">33:36</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>5.4K views · Today</span><span class="vcard-likes">♥ 231</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph6394ed3c77d4f&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/6394ed3c77d4f/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t4">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-duration">33:36</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">B</div><div class="author-name">Blacked</div></div>
         <div class="vcard-title">Busty Brunette Office Fantasy</div>
-        <div class="vcard-meta"><span>9.6K views</span><span class="vcard-rating">★ 98%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph62a76471afaa5&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/60d5dd2cc20a7/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">Full HD</div>
-        <div class="vcard-duration">49:26</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>9.6K views · Today</span><span class="vcard-likes">♥ 153</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph60d5dd2cc20a7&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/60d5dd2cc20a7/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t5">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">Full HD</div>
+          <div class="vcard-duration">49:26</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">A</div><div class="author-name">AdultTime</div></div>
         <div class="vcard-title">Hot Asian Babe Gets Surprise Massage</div>
-        <div class="vcard-meta"><span>73K views</span><span class="vcard-rating">★ 90%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph623fcb8077a54&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/624ee9fddef91/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">12:10</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>73K views · Today</span><span class="vcard-likes">♥ 232</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph624ee9fddef91&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/624ee9fddef91/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t6">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">12:10</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">W</div><div class="author-name">WowGirls</div></div>
         <div class="vcard-title">Curvy Latina Shows Off Her Amazing Body</div>
-        <div class="vcard-meta"><span>5.4K views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph63968156d9d8c&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/62a76471afaa5/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">19:27</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>5.4K views · Today</span><span class="vcard-likes">♥ 106</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph62a76471afaa5&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/62a76471afaa5/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t7">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-duration">19:27</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">F</div><div class="author-name">FamilyXXX</div></div>
         <div class="vcard-title">Cute Petite Teen Blonde At The Gym</div>
-        <div class="vcard-meta"><span>10K views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph619577f610981&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/623fcb8077a54/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">Full HD</div>
-        <div class="vcard-duration">58:40</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>10K views · Today</span><span class="vcard-likes">♥ 108</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph623fcb8077a54&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/623fcb8077a54/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t8">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">Full HD</div>
+          <div class="vcard-duration">58:40</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">U</div><div class="author-name">UltraFilms</div></div>
         <div class="vcard-title">Beautiful Redhead Slow Sensual Session</div>
-        <div class="vcard-meta"><span>12K views</span><span class="vcard-rating">★ 95%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph61bef8ce73b89&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/63968156d9d8c/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">4K</div>
-        <div class="vcard-duration">35:50</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Sexy Nurse Fantasy Role Play Scene</div>
-        <div class="vcard-meta"><span>8.2K views</span><span class="vcard-rating">★ 97%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph6399369000d0b&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/619577f610981/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">18:14</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Passionate Couple Morning Quickie</div>
-        <div class="vcard-meta"><span>3.1K views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph6339ae9f6a561&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/61bef8ce73b89/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">27:03</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>12K views · Today</span><span class="vcard-likes">♥ 186</span></div>
+      </a>
+
+    </div>
+
+    <!-- BANNER #2 MID PAGE -->
+    <div class="banner-zone bz-mid" data-label="CrakRevenue · Mid Page 728×90" style="margin-bottom:24px">
+      <!-- Paste CrakRevenue banner code here -->
+      <div style="font-size:11px;color:#333">📋 BANNER ZONE #2 — MID PAGE</div>
+    </div>
+
+    <!-- LATEST VIDEOS -->
+    <div class="sec-head">
+      <div class="sec-title">Latest Videos</div>
+      <a href="#" class="sec-link">View All →</a>
+    </div>
+
+    <div class="video-grid">
+
+      <a class="vcard" href="video-player.html?src=ph63968156d9d8c&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/63968156d9d8c/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t3">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">22:11</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">L</div><div class="author-name">LetsDoElt</div></div>
+        <div class="vcard-title">Brunette Wife Home Surprise Session</div>
+        <div class="vcard-meta"><span>420 views · 1h ago</span><span class="vcard-likes">♥ 38</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph619577f610981&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/619577f610981/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t1">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">4K</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">38:55</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">S</div><div class="author-name">Sweetie Fox</div></div>
+        <div class="vcard-title">Asian Beauty Bedroom Alone Scene</div>
+        <div class="vcard-meta"><span>1.1K views · 2h ago</span><span class="vcard-likes">♥ 511</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph61bef8ce73b89&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/61bef8ce73b89/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t6">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">14:30</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">D</div><div class="author-name">Diana Rider</div></div>
+        <div class="vcard-title">Latina Teen First Time POV Scene</div>
+        <div class="vcard-meta"><span>780 views · 3h ago</span><span class="vcard-likes">♥ 72</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph6399369000d0b&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/6399369000d0b/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t4">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">Full HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">51:20</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">R</div><div class="author-name">Riley Reid</div></div>
+        <div class="vcard-title">Redhead Cam Girl Goes Wild Tonight</div>
+        <div class="vcard-meta"><span>2.3K views · 4h ago</span><span class="vcard-likes">♥ 143</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph6339ae9f6a561&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/6339ae9f6a561/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t2">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">26:14</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">M</div><div class="author-name">Mia Malkova</div></div>
+        <div class="vcard-title">Passionate MILF Morning Session</div>
+        <div class="vcard-meta"><span>3.8K views · 5h ago</span><span class="vcard-likes">♥ 204</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph5ee3cb177d2bd&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/5ee3cb177d2bd/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t5">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">18:45</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">A</div><div class="author-name">Angel X</div></div>
         <div class="vcard-title">Blonde Stepsister Caught In The Act</div>
-        <div class="vcard-meta"><span>31K views</span><span class="vcard-rating">★ 92%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph5ee3cb177d2bd&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/6399369000d0b/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">Full HD</div>
-        <div class="vcard-duration">42:18</div>
-      </div>
-      <div class="vcard-info">
+        <div class="vcard-meta"><span>6.1K views · 6h ago</span><span class="vcard-likes">♥ 317</span></div>
+      </a>
+
+      <a class="vcard" href="video-player.html?src=ph629bc8dd6cf27&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/629bc8dd6cf27/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t7">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">4K</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">42:08</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">J</div><div class="author-name">Jenny Kitty</div></div>
         <div class="vcard-title">MILF Next Door Seduces Young Neighbor</div>
-        <div class="vcard-meta"><span>19K views</span><span class="vcard-rating">★ 96%</span></div>
-      </div>
-    </a>
-  </div>
+        <div class="vcard-meta"><span>4.7K views · 7h ago</span><span class="vcard-likes">♥ 189</span></div>
+      </a>
 
-  <!-- LATEST VIDEOS -->
+      <a class="vcard" href="video-player.html?src=ph629c64c9c5a9b&site=pornhub">
+        <div class="vcard-thumb">
+          <img src="https://ci.phncdn.com/videos/629c64c9c5a9b/original/(00001).jpg" loading="lazy" onerror="this.style.display='none'">
+          <div class="thumb-bg t8">🎬</div>
+          <div class="play-icon">▶</div>
+          <div class="vcard-hd">Full HD</div>
+          <div class="vcard-new">NEW</div>
+          <div class="vcard-duration">35:22</div>
+        </div>
+        <div class="vcard-author"><div class="author-avatar">C</div><div class="author-name">Comatozze</div></div>
+        <div class="vcard-title">Alone With His Girlfriend While He Shops</div>
+        <div class="vcard-meta"><span>68K views · 8h ago</span><span class="vcard-likes">♥ 421</span></div>
+      </a>
 
-  <!-- ═══════════════════════════════════════════════════════
-       CRAKREVENUE BANNER #2 — INLINE STRIP (728x90)
-       Placement: Between Trending Now and Latest Videos rows
-       Best for: Mid-page engagement, high CTR placement
-       HOW TO USE: Delete cr-placeholder, paste banner code.
-  ═══════════════════════════════════════════════════════ -->
-  <div class="cr-banner-zone cr-inline" data-label="CrakRevenue · Mid-Page Strip">
-    <div class="cr-placeholder">
-      <div>📋 Paste CrakRevenue banner code here</div>
-      <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #2 — MID PAGE</div>
     </div>
-  </div>
 
-  <div class="sec-head" style="margin-top:10px">
-    <h2>Latest Videos</h2>
-    <a href="#">View All →</a>
-  </div>
-  <div class="video-grid">
-    <a class="vcard" href="video-player.html?src=ph629bc8dd6cf27&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/6339ae9f6a561/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">22:11</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Brunette Wife Home Session</div>
-        <div class="vcard-meta"><span>420 views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph629c64c9c5a9b&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/5ee3cb177d2bd/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">4K</div>
-        <div class="vcard-duration">38:55</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Asian Beauty Bedroom Alone</div>
-        <div class="vcard-meta"><span>1.1K views</span><span class="vcard-rating">★ 99%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph6394f4ec30f64&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/629bc8dd6cf27/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">HD</div>
-        <div class="vcard-duration">14:30</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Latina Teen First Time POV</div>
-        <div class="vcard-meta"><span>780 views</span><span class="vcard-rating">★ 100%</span></div>
-      </div>
-    </a>
-    <a class="vcard" href="video-player.html?src=ph5fce4d881f61d&site=pornhub">
-      <div class="vcard-thumb">
-        <img src="https://ci.phncdn.com/videos/629c64c9c5a9b/original/(00001).jpg" alt="Video thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="thumb-placeholder t1" style="display:none">🎬</div>
-        <div class="vcard-overlay"><div class="play-btn">▶</div></div>
-        <div class="vcard-hd">Full HD</div>
-        <div class="vcard-duration">51:20</div>
-        <div class="vcard-new">NEW</div>
-      </div>
-      <div class="vcard-info">
-        <div class="vcard-title">Redhead Cam Girl Goes Wild</div>
-        <div class="vcard-meta"><span>2.3K views</span><span class="vcard-rating">★ 98%</span></div>
-      </div>
-    </a>
-  </div>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       CRAKREVENUE BANNER #3 — BOTTOM LEADERBOARD (728x90)
-       Placement: Above pagination, end of content
-       Best for: Catching users before they leave
-       HOW TO USE: Delete cr-placeholder, paste banner code.
-  ═══════════════════════════════════════════════════════ -->
-  <div class="cr-banner-zone cr-leaderboard" data-label="CrakRevenue · Bottom Leaderboard">
-    <div class="cr-placeholder">
-      <div>📋 Paste CrakRevenue banner code here</div>
-      <div style="font-size:9px;margin-top:3px;color:#444">BANNER ZONE #3 — BOTTOM</div>
+    <!-- PAGINATION -->
+    <div class="pagination">
+      <div class="pg-btn">‹</div>
+      <div class="pg-btn active">1</div>
+      <div class="pg-btn">2</div>
+      <div class="pg-btn">3</div>
+      <div class="pg-btn">4</div>
+      <div class="pg-btn">5</div>
+      <div class="pg-btn">...</div>
+      <div class="pg-btn">48</div>
+      <div class="pg-btn">›</div>
     </div>
-  </div>
 
-  <!-- PAGINATION -->
-  <div class="pagination" role="navigation" aria-label="Page navigation">
-    <div class="page-btn">‹</div>
-    <div class="page-btn active">1</div>
-    <div class="page-btn">2</div>
-    <div class="page-btn">3</div>
-    <div class="page-btn">4</div>
-    <div class="page-btn">5</div>
-    <div class="page-btn">...</div>
-    <div class="page-btn">48</div>
-    <div class="page-btn">›</div>
-  </div>
+  </div><!-- /page -->
 
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">Hot<em>Vidz</em></a>
-        <p>Your #1 source for free HD adult videos. Updated daily with new content across hundreds of categories. 100% free — no signup required.</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="cookies-policy.html">Cookies Policy</a>
+        <a href="disclaimer.html">18 U.S.C. 2257</a>
       </div>
-      <div class="footer-col">
-        <h4>Browse</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Latest Videos</a></li>
-          <li><a href="#">Top Rated</a></li>
-          <li><a href="#">Most Viewed</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Pornstars</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Use</a></li>
-          <li><a href="dmca.html">DMCA</a></li>
-          <li><a href="cookies-policy.html">Cookies Policy</a></li>
-          <li><a href="disclaimer.html">18 U.S.C. 2257</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
       <div class="footer-legal">
-        <p>HotVidz is an adult website intended solely for persons aged 18 years or older. All models appearing on this website were 18 years of age or older at the time of filming. By entering this site you affirm that you are at least 18 years old and that it is legal to view adult content in your jurisdiction.</p>
-        <p style="margin-top:5px">© 2026 HotVidz. All rights reserved. <a href="disclaimer.html">18 U.S.C. 2257 Statement</a></p>
+        All models were 18+ at time of filming. By entering you confirm you are 18+. © 2026 HotVidz. All rights reserved.
+        <span class="rta">RTA</span>
       </div>
-      <span class="rta-badge">RTA</span>
     </div>
-  </div>
-</footer>
+  </footer>
+
+</div><!-- /main -->
 
 <script>
-function dismissCookie(){
-  document.getElementById('cookieNotice').classList.add('hidden');
-  localStorage.setItem('cookieDismissed','1');
-}
-if(localStorage.getItem('cookieDismissed')){
-  document.getElementById('cookieNotice').classList.add('hidden');
-}
-document.querySelectorAll('.sort-tab').forEach(t=>{
-  t.addEventListener('click',()=>{
-    t.closest('.sort-tabs').querySelectorAll('.sort-tab').forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-  });
-});
-document.querySelectorAll('.cat-pill').forEach(p=>{
-  p.addEventListener('click',()=>{
-    document.querySelectorAll('.cat-pill').forEach(x=>x.classList.remove('active'));
-    p.classList.add('active');
-  });
-});
-document.querySelectorAll('.page-btn').forEach(b=>{
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.page-btn').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-  });
-});
+if(localStorage.getItem('ck')) document.getElementById('cookieBanner').classList.add('hidden');
+document.querySelectorAll('.sort-tab').forEach(t=>t.addEventListener('click',()=>{t.closest('.sort-tabs').querySelectorAll('.sort-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')}));
+document.querySelectorAll('.cat-pill').forEach(p=>p.addEventListener('click',()=>{document.querySelectorAll('.cat-pill').forEach(x=>x.classList.remove('active'));p.classList.add('active')}));
+document.querySelectorAll('.pg-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pg-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));
 </script>
 </body>
 </html>
