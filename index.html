@@ -430,7 +430,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
     </div>
 
     <!-- VIDEO GRID -->
-    <div class="video-grid">
+    <div class="video-grid" id="trending-grid">
 
       <a class="vcard" href="video-player.html?src=opilkli381f&site=xvideos">
         <div class="vthumb">
@@ -729,6 +729,61 @@ document.querySelectorAll('.pg').forEach(p=>{
     p.classList.add('active');
   });
 });
+</script>
+
+<script>
+// ── HOTVIDZ API AUTO-FETCH ──
+// UPDATE THIS URL after deploying to Railway:
+const API_URL = 'https://hotvidz-api.up.railway.app';
+
+function makeCard(v) {
+  const thumb = v.thumb || `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${v.id}/main.jpg`;
+  const playerUrl = `video-player.html?src=${v.src || v.id}&site=${v.site || 'xvideos'}`;
+  const classes = ['t1','t2','t3','t4','t5','t6','t7','t8'];
+  const tClass = classes[Math.floor(Math.random()*8)];
+  const qualities = ['720p','1080p','1080p','1440p'];
+  const q = qualities[Math.floor(Math.random()*4)];
+  return `
+    <a class="vcard" href="${playerUrl}">
+      <div class="vthumb">
+        <img src="${thumb}" loading="lazy" onerror="this.style.display='none'">
+        <div class="thumb-bg ${tClass}">🎬</div>
+        <div class="vplay">▶</div>
+        <div class="vquality hd">${q}</div>
+        <div class="vduration">${v.duration || '10 min'}</div>
+      </div>
+      <div class="vcard-title">${v.title || 'Hot Video'}</div>
+      <div class="vcard-meta">
+        <span class="vcard-channel">${v.channel || 'HotVidz'}</span>
+        <span class="vmeta-dot">·</span>
+        <span class="vcard-views">${v.views || '0'} Views</span>
+      </div>
+    </a>`;
+}
+
+async function loadVideos() {
+  try {
+    const res = await fetch(`${API_URL}/api/videos`, { signal: AbortSignal.timeout(5000) });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+
+    const tGrid = document.getElementById('trending-grid');
+    if (tGrid && data.trending && data.trending.length > 0) {
+      // Save banner zone if exists
+      const banner = tGrid.querySelector('.bzone');
+      tGrid.innerHTML = '';
+      data.trending.slice(0, 10).forEach(v => tGrid.insertAdjacentHTML('beforeend', makeCard(v)));
+      if (banner) tGrid.appendChild(banner);
+      data.trending.slice(10).forEach(v => tGrid.insertAdjacentHTML('beforeend', makeCard(v)));
+    }
+
+    console.log('✅ API videos loaded:', data.trending.length);
+  } catch(err) {
+    console.log('⚠️ Using static videos (API unavailable)');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadVideos);
 </script>
 </body>
 </html>
