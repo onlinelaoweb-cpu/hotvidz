@@ -3,12 +3,16 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const cors = require('cors');
 const cron = require('node-cron');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
-app.use(cors()); // Allow GitHub Pages to call this API
+app.use(cors());
 app.use(express.json());
+
+// ── SERVE STATIC HTML FILES ──
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ── IN-MEMORY VIDEO STORE ──
 let videoCache = {
@@ -18,7 +22,7 @@ let videoCache = {
 };
 
 // ── SCRAPE XVIDEOS ──
-async function scrapeXVideos(url = 'https://www.xvideos.com/') {
+async function scrapeXVideos(url) {
   try {
     const { data } = await axios.get(url, {
       headers: {
@@ -32,7 +36,6 @@ async function scrapeXVideos(url = 'https://www.xvideos.com/') {
     const $ = cheerio.load(data);
     const videos = [];
 
-    // XVideos video cards
     $('div.thumb-block, div.mozaique .thumb').each((i, el) => {
       try {
         const link = $(el).find('a').first().attr('href') || '';
@@ -42,10 +45,8 @@ async function scrapeXVideos(url = 'https://www.xvideos.com/') {
         const thumb = $(el).find('img').first().attr('data-src') ||
                       $(el).find('img').first().attr('src') || '';
 
-        // Extract video ID from URL
         const idMatch = link.match(/\/video\.?([a-z0-9]+)\//);
         if (!idMatch) return;
-
         const id = idMatch[1];
         if (!id || id.length < 4) return;
 
@@ -58,7 +59,6 @@ async function scrapeXVideos(url = 'https://www.xvideos.com/') {
                  `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${id}/main.jpg`,
           src: id,
           site: 'xvideos',
-          url: `https://www.xvideos.com${link}`
         });
       } catch(e) {}
     });
@@ -70,12 +70,10 @@ async function scrapeXVideos(url = 'https://www.xvideos.com/') {
   }
 }
 
-// ── FETCH & CACHE VIDEOS ──
+// ── REFRESH CACHE ──
 async function refreshVideos() {
   console.log('🔄 Refreshing video cache...');
-
   try {
-    // Fetch from multiple pages
     const [trending, latest, milf, amateur] = await Promise.all([
       scrapeXVideos('https://www.xvideos.com/?k=hd&sort=relevance'),
       scrapeXVideos('https://www.xvideos.com/new'),
@@ -83,7 +81,6 @@ async function refreshVideos() {
       scrapeXVideos('https://www.xvideos.com/?k=amateur'),
     ]);
 
-    // Dedupe by ID
     const allVideos = [...trending, ...latest, ...milf, ...amateur];
     const seen = new Set();
     const unique = allVideos.filter(v => {
@@ -95,15 +92,14 @@ async function refreshVideos() {
     videoCache.trending = unique.slice(0, 20);
     videoCache.latest   = unique.slice(20, 40);
     videoCache.lastUpdated = new Date().toISOString();
-
-    console.log(`✅ Cached ${unique.length} videos (${videoCache.trending.length} trending, ${videoCache.latest.length} latest)`);
+    console.log(`✅ Cached ${unique.length} videos`);
   } catch (err) {
     console.error('Refresh error:', err.message);
   }
 }
 
-// ── FALLBACK VIDEOS (if scrape fails) ──
-const FALLBACK_VIDEOS = [
+// ── FALLBACK VIDEOS ──
+const FALLBACK = [
   { id: 'opilkli381f', title: 'Hot Amateur Couple Home Video', duration: '24 min', views: '2.9M', site: 'xvideos' },
   { id: 'ufthimo2cdc', title: 'MILF Seduces Young Stud', duration: '18 min', views: '1.2M', site: 'xvideos' },
   { id: 'oobopeve53b', title: 'Petite Blonde Gets Drilled', duration: '15 min', views: '890K', site: 'xvideos' },
@@ -114,77 +110,38 @@ const FALLBACK_VIDEOS = [
   { id: 'okcuhom2b47', title: 'Redhead Slow Sensual Session', duration: '58 min', views: '1.2M', site: 'xvideos' },
   { id: 'uvvmobd43ae', title: 'Stepsis Caught In The Act', duration: '27 min', views: '5.6M', site: 'xvideos' },
   { id: 'kpkatam4ba0', title: 'MILF Next Door Seduces Neighbor', duration: '42 min', views: '2.1M', site: 'xvideos' },
-  { id: 'oodpeftfefd', title: 'Sexy Nurse Fantasy Role Play', duration: '35 min', views: '980K', site: 'xvideos' },
-  { id: 'oohtftb965d', title: 'Passionate Morning Quickie', duration: '18 min', views: '340K', site: 'xvideos' },
-  { id: 'ucpebukc1fa', title: 'Brunette Wife Home Session', duration: '22 min', views: '420K', site: 'xvideos' },
-  { id: 'opkphmcef1f', title: 'Asian Beauty Bedroom Scene', duration: '38 min', views: '1.1K', site: 'xvideos' },
-  { id: 'opkdeuud128', title: 'Latina Teen First Time POV', duration: '14 min', views: '780K', site: 'xvideos' },
-].map(v => ({
-  ...v,
-  thumb: `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${v.id}/main.jpg`,
-  src: v.id,
-}));
+].map(v => ({ ...v, thumb: `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${v.id}/main.jpg`, src: v.id }));
 
-// ── ROUTES ──
-
-// Health check
-app.get('/', (req, res) => {
-  res.json({
-    status: 'ok',
-    name: 'HotVidz API',
-    lastUpdated: videoCache.lastUpdated,
-    totalVideos: videoCache.trending.length + videoCache.latest.length
-  });
-});
-
-// Get all videos
+// ── API ROUTES ──
 app.get('/api/videos', (req, res) => {
-  const trending = videoCache.trending.length > 0 ? videoCache.trending : FALLBACK_VIDEOS.slice(0, 10);
-  const latest   = videoCache.latest.length > 0   ? videoCache.latest   : FALLBACK_VIDEOS.slice(10);
-
   res.json({
     success: true,
     lastUpdated: videoCache.lastUpdated,
-    trending,
-    latest
+    trending: videoCache.trending.length > 0 ? videoCache.trending : FALLBACK,
+    latest: videoCache.latest.length > 0 ? videoCache.latest : FALLBACK,
   });
 });
 
-// Get trending only
 app.get('/api/videos/trending', (req, res) => {
   const limit = parseInt(req.query.limit) || 20;
-  const videos = videoCache.trending.length > 0 ? videoCache.trending : FALLBACK_VIDEOS;
-  res.json({ success: true, videos: videos.slice(0, limit) });
+  res.json({ success: true, videos: (videoCache.trending.length > 0 ? videoCache.trending : FALLBACK).slice(0, limit) });
 });
 
-// Get latest only
 app.get('/api/videos/latest', (req, res) => {
   const limit = parseInt(req.query.limit) || 20;
-  const videos = videoCache.latest.length > 0 ? videoCache.latest : FALLBACK_VIDEOS;
-  res.json({ success: true, videos: videos.slice(0, limit) });
+  res.json({ success: true, videos: (videoCache.latest.length > 0 ? videoCache.latest : FALLBACK).slice(0, limit) });
 });
 
-// Manual refresh (for testing)
+app.get('/api/status', (req, res) => {
+  res.json({ status: 'ok', name: 'HotVidz API', lastUpdated: videoCache.lastUpdated, totalVideos: videoCache.trending.length + videoCache.latest.length });
+});
+
 app.post('/api/refresh', async (req, res) => {
   await refreshVideos();
-  res.json({ success: true, message: 'Cache refreshed', lastUpdated: videoCache.lastUpdated });
-});
-
-// ── CRON JOB — refresh every 6 hours ──
-cron.schedule('0 */6 * * *', () => {
-  console.log('⏰ Cron: refreshing videos...');
-  refreshVideos();
-});
-
-// ── START ──
-app.listen(PORT, async () => {
-  console.log(`🚀 HotVidz API running on port ${PORT}`);
-  // Fetch on startup
-  await refreshVideos();
+  res.json({ success: true, lastUpdated: videoCache.lastUpdated });
 });
 
 // ── THUMBNAIL PROXY ──
-// Proxies XVideos thumbnails to avoid hotlink blocking
 app.get('/thumb/:id', async (req, res) => {
   const { id } = req.params;
   const thumbUrl = `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${id}/main.jpg`;
@@ -201,8 +158,21 @@ app.get('/thumb/:id', async (req, res) => {
     res.set('Cache-Control', 'public, max-age=86400');
     res.send(response.data);
   } catch(err) {
-    // Return a placeholder SVG if thumb fails
     res.set('Content-Type', 'image/svg+xml');
-    res.send(`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180"><rect width="320" height="180" fill="#1a1a1a"/><text x="160" y="95" text-anchor="middle" fill="#444" font-size="40">🎬</text></svg>`);
+    res.send('<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><rect width="320" height="180" fill="#1a1a1a"/><text x="160" y="95" text-anchor="middle" fill="#444" font-size="40">🎬</text></svg>');
   }
+});
+
+// ── CATCH ALL — serve index.html for any unknown route ──
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// ── CRON — refresh every 6 hours ──
+cron.schedule('0 */6 * * *', refreshVideos);
+
+// ── START ──
+app.listen(PORT, async () => {
+  console.log(`🚀 HotVidz running on port ${PORT}`);
+  await refreshVideos();
 });
