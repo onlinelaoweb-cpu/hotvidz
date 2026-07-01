@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // ── SERVE STATIC HTML FILES ──
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // ── IN-MEMORY VIDEO STORE ──
 let videoCache = {
@@ -165,7 +165,7 @@ app.get('/thumb/:id', async (req, res) => {
 
 // ── CATCH ALL — serve index.html for any unknown route ──
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // ── CRON — refresh every 6 hours ──
