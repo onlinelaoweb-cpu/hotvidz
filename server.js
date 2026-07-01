@@ -182,3 +182,27 @@ app.listen(PORT, async () => {
   // Fetch on startup
   await refreshVideos();
 });
+
+// ── THUMBNAIL PROXY ──
+// Proxies XVideos thumbnails to avoid hotlink blocking
+app.get('/thumb/:id', async (req, res) => {
+  const { id } = req.params;
+  const thumbUrl = `https://cdn77-pic.xvideos-cdn.com/videos/thumbs169poster/${id}/main.jpg`;
+  try {
+    const response = await axios.get(thumbUrl, {
+      responseType: 'arraybuffer',
+      headers: {
+        'Referer': 'https://www.xvideos.com/',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36'
+      },
+      timeout: 8000
+    });
+    res.set('Content-Type', 'image/jpeg');
+    res.set('Cache-Control', 'public, max-age=86400');
+    res.send(response.data);
+  } catch(err) {
+    // Return a placeholder SVG if thumb fails
+    res.set('Content-Type', 'image/svg+xml');
+    res.send(`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180"><rect width="320" height="180" fill="#1a1a1a"/><text x="160" y="95" text-anchor="middle" fill="#444" font-size="40">🎬</text></svg>`);
+  }
+});
