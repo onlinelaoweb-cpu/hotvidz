@@ -318,6 +318,15 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 @media(max-width:1100px){.video-grid{grid-template-columns:repeat(4,1fr)}.sidebar{display:none}}
 @media(max-width:800px){.video-grid{grid-template-columns:repeat(3,1fr)}.layout{padding:10px}}
 @media(max-width:540px){.video-grid{grid-template-columns:repeat(2,1fr)}.topbar-nav .btn-premium{display:none}}
+
+
+/* ── THUMBNAIL LAYERING FIX ── */
+.vthumb { position:relative; aspect-ratio:16/9; overflow:hidden; background:#111; border-radius:3px; margin-bottom:6px; }
+.vthumb .thumb-bg { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:1; }
+.vthumb img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:2; }
+.vthumb .vplay { z-index:4; }
+.vthumb .vquality, .vthumb .vduration, .vthumb .vnew, .vthumb .vpremium { z-index:3; }
+
 </style>
 </head>
 <body>
@@ -347,15 +356,12 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
 <!-- SUBNAV -->
 <nav class="subnav">
-  <a href="#" class="active"><span class="subnav-icon">▶</span> Best Videos</a>
+  <a href="index.html" class="active"><span class="subnav-icon">▶</span> Best Videos</a>
+  <a href="#"><span class="subnav-icon">🔥</span> Trending</a>
+  <a href="#"><span class="subnav-icon">⭐</span> Top Rated</a>
+  <a href="#"><span class="subnav-icon">🕐</span> Latest</a>
   <a href="#"><span class="subnav-icon">📂</span> Categories</a>
-  <a href="#"><span class="subnav-icon">📺</span> Channels</a>
   <a href="#"><span class="subnav-icon">⭐</span> Pornstars</a>
-  <a href="#"><span class="subnav-icon">🔴</span> RED Videos <span class="subnav-badge">NEW</span></a>
-  <a href="#"><span class="subnav-icon">📷</span> Live Cams</a>
-  <a href="#"><span class="subnav-icon">❤️</span> Dating</a>
-  <a href="#"><span class="subnav-icon">🎮</span> Games</a>
-  <a href="#"><span class="subnav-icon">👤</span> Profiles</a>
 </nav>
 
 <!-- LAYOUT -->
@@ -363,45 +369,32 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="side-section">
-      <div class="side-title">Straight</div>
-      <ul class="side-list">
-        <li><a href="#" class="active">All videos <span class="side-count">12.4M</span></a></li>
-        <li><a href="#">Amateur <span class="side-count">2.1M</span></a></li>
-        <li><a href="#">Anal <span class="side-count">1.8M</span></a></li>
-        <li><a href="#">Asian <span class="side-count">890K</span></a></li>
-        <li><a href="#">MILF <span class="side-count">1.2M</span></a></li>
-        <li><a href="#">Teen (18+) <span class="side-count">980K</span></a></li>
-        <li><a href="#">Blowjob <span class="side-count">1.5M</span></a></li>
-        <li><a href="#">Big Tits <span class="side-count">760K</span></a></li>
-        <li><a href="#">Latina <span class="side-count">540K</span></a></li>
-        <li><a href="#">POV <span class="side-count">430K</span></a></li>
-        <li><a href="#">Lesbian <span class="side-count">670K</span></a></li>
-        <li><a href="#">Creampie <span class="side-count">320K</span></a></li>
-        <li><a href="#">BBC <span class="side-count">290K</span></a></li>
-        <li><a href="#">Threesome <span class="side-count">280K</span></a></li>
-        <li><a href="#">Squirt <span class="side-count">210K</span></a></li>
-      </ul>
-    </div>
-    <div class="side-section">
-      <div class="side-title">Duration</div>
-      <ul class="side-list">
-        <li><a href="#">All durations</a></li>
-        <li><a href="#">1-10 min</a></li>
-        <li><a href="#">10-20 min</a></li>
-        <li><a href="#">20+ min</a></li>
-      </ul>
-    </div>
-    <div class="side-section">
-      <div class="side-title">Quality</div>
-      <ul class="side-list">
-        <li><a href="#">All quality</a></li>
-        <li><a href="#">720p</a></li>
-        <li><a href="#">1080p</a></li>
-        <li><a href="#">1440p+</a></li>
-      </ul>
-    </div>
-  </aside>
+  <div class="side-section">
+    <div class="side-title">Categories</div>
+    <ul class="side-list">
+      <li><a href="#" class="active" data-filter="all">All videos <span class="side-count">40+</span></a></li>
+      <li><a href="#" data-filter="amateur">Amateur</a></li>
+      <li><a href="#" data-filter="milf">MILF</a></li>
+      <li><a href="#" data-filter="asian">Asian</a></li>
+      <li><a href="#" data-filter="latina">Latina</a></li>
+      <li><a href="#" data-filter="teen">Teen (18+)</a></li>
+      <li><a href="#" data-filter="anal">Anal</a></li>
+      <li><a href="#" data-filter="lesbian">Lesbian</a></li>
+      <li><a href="#" data-filter="pov">POV</a></li>
+      <li><a href="#" data-filter="bigass">Big Ass</a></li>
+      <li><a href="#" data-filter="blowjob">Blowjob</a></li>
+    </ul>
+  </div>
+  <div class="side-section">
+    <div class="side-title">Duration</div>
+    <ul class="side-list">
+      <li><a href="#">All durations</a></li>
+      <li><a href="#">1-10 min</a></li>
+      <li><a href="#">10-20 min</a></li>
+      <li><a href="#">20+ min</a></li>
+    </ul>
+  </div>
+</aside>
 
   <!-- CONTENT -->
   <div class="content">
@@ -417,24 +410,19 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
       <button class="filter-btn">New videos</button>
       <button class="filter-btn">Most viewed</button>
       <button class="filter-btn">Top rated</button>
-      <span class="filter-sep">|</span>
-      <button class="filter-btn">Today</button>
-      <button class="filter-btn">This week</button>
-      <button class="filter-btn">This month</button>
       <select class="sort-select">
         <option>All durations</option>
-        <option>Short (1-10 min)</option>
-        <option>Medium (10-20 min)</option>
-        <option>Long (20+ min)</option>
+        <option>1-10 min</option>
+        <option>10-20 min</option>
+        <option>20+ min</option>
       </select>
     </div>
-
     <!-- VIDEO GRID -->
     <div class="video-grid" id="trending-grid">
 
       <a class="vcard" href="video-player.html?src=opilkli381f&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/opilkli381f" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/opilkli381f" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t1">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -450,7 +438,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=ufthimo2cdc&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/ufthimo2cdc" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/ufthimo2cdc" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t2">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality fhd">1080p</div>
@@ -466,7 +454,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=oobopeve53b&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/oobopeve53b" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/oobopeve53b" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t3">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -482,7 +470,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=kalkeafaa2b&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/kalkeafaa2b" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/kalkeafaa2b" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t4">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -498,7 +486,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=opiboek0be3&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/opiboek0be3" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/opiboek0be3" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t5">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality uhd">1440p</div>
@@ -514,7 +502,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=oofbtdpbadc&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/oofbtdpbadc" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/oofbtdpbadc" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t6">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -530,7 +518,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=ookabft1f3f&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/ookabft1f3f" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/ookabft1f3f" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t7">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality fhd">1080p</div>
@@ -547,7 +535,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=okcuhom2b47&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/okcuhom2b47" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/okcuhom2b47" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t8">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -563,7 +551,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=uvvmobd43ae&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/uvvmobd43ae" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/uvvmobd43ae" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t1">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -579,7 +567,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=kpkatam4ba0&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/kpkatam4ba0" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/kpkatam4ba0" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t2">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality fhd">1080p</div>
@@ -600,7 +588,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=oodpeftfefd&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/oodpeftfefd" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/oodpeftfefd" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t3">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">720p</div>
@@ -616,7 +604,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=oohtftb965d&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/oohtftb965d" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/oohtftb965d" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t4">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">720p</div>
@@ -632,7 +620,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=ucpebukc1fa&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/ucpebukc1fa" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/ucpebukc1fa" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t5">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality uhd">1440p</div>
@@ -648,7 +636,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=opkphmcef1f&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/opkphmcef1f" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/opkphmcef1f" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t6">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality hd">1080p</div>
@@ -664,7 +652,7 @@ footer{background:#0a0a0a;border-top:1px solid #222;margin-top:24px}
 
       <a class="vcard" href="video-player.html?src=opkdeuud128&site=xvideos">
         <div class="vthumb">
-          <img src="https://hotvidz-production.up.railway.app/thumb/opkdeuud128" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://hotvidz-production.up.railway.app/thumb/opkdeuud128" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
           <div class="thumb-bg t7">🎬</div>
           <div class="vplay">▶</div>
           <div class="vquality fhd">1080p</div>
